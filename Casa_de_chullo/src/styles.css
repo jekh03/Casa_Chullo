@@ -1,0 +1,391 @@
+@font-face {
+    font-family: 'Fuente';
+    src: url('./fonts/SquadaOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Fuente2';
+    src: url('./fonts/static/JosefinSans-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Fuente2_1';
+    src: url('./fonts/static/JosefinSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Fuente2_2';
+    src: url('./fonts/static/JosefinSans-Bold.ttf');
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background:linear-gradient(#1a0000 3%, rgb(45 6 6 / 99%) 30%);
+    overflow-x: hidden;
+    margin: 0;
+    padding:0 25px ;
+}
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotate(0deg); /* Estado inicial */
+    }
+    100% {
+        transform: rotate(360deg); /* Rotación completa */
+    }
+}
+  
+.cuadrado {
+    position: absolute;
+    background-color: rgba(248, 248, 248, 0.068); /* Color blanco semitransparente */
+    width: 100px;
+    height: 100px;
+    transform-origin: center; /* Rotar alrededor del centro */
+    animation: rotar 240s linear infinite; /* Aplicar animación de rotación */
+    z-index: -1;
+}
+
+.navegacion h1{
+    font-size: 20px;
+    font-family: 'Fuente', sans-serif;
+}
+
+.navegable{
+    display: flex;
+    border-radius: 9px;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navegable_inicio{
+    display: flex;
+    gap: 1rem;
+}
+
+.navegacion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: aliceblue;
+}
+
+a{
+    text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Hereda el color del texto circundante */
+  cursor: pointer; /* Cambia el cursor para que parezca clickeable */
+  padding: 0 20px;
+}
+
+h3{
+    margin: auto 45px;
+    cursor: pointer;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+}
+
+.caja_servicios p{
+    font-weight: bold;
+    text-shadow: 
+        0.5px 0.5px 0px rgb(63, 64, 70), 
+        -0.5px 0.5px 0px rgb(63, 64, 70), 
+        0.5px -0.5px 0px rgb(63, 64, 70), 
+        -0.5px -0.5px 0px rgb(63, 64, 70);
+    color:aliceblue
+}
+
+
+.Nosotros p, .info p{
+    color: aliceblue;
+    padding: 10px;
+    font-size: 2vw;
+    font-family: 'Fuente2';
+}
+
+.contenedor_imagen{
+    position: relative; /* Para fijar el contenedor en la parte derecha de la pantalla */
+    top: 0;
+    right: 0;
+    height: 622px; /* Alto de la imagen */
+    width:100vw;
+    overflow: hidden; /* Oculta la parte que sobresale */
+}
+
+.contenedor_imagen img{
+    filter: drop-shadow(0 0 10px rgb(0, 0, 0, .8));
+    -webkit-mask-image: linear-gradient(black 30%,transparent);
+    mask-image: linear-gradient(black 30%,transparent);
+    bottom: 0;
+    position: relative;
+    right: 0;
+    top:125px;
+    margin: 0;
+}
+
+.info, .Nosotros, .Galeria, .Servicios, .Ubicacion{
+    margin-bottom: 200px;
+}
+
+.imagenes{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    margin: 0 10px;
+}
+
+.recuadro1{
+    width: 100px;
+    height: 100px;
+}
+
+.recuadro2{
+    width: 200px;
+    height: 200px;
+}
+
+.recuadro3{
+    width: 300px;
+    height: 300px;
+}
+
+.recuadro4{
+    width: 200px;
+    height: 200px;
+}
+
+.recuadro5{
+    width: 100px;
+    height: 100px;
+}
+
+.Galeria{
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    /*position: relative; /* El contenedor debe ser relativo para que los hijos con posición absoluta se posicionen respecto a él */
+    width: 990px; /* Ajusta el tamaño del contenedor según sea necesario */
+    height: 360px; /* Ajusta la altura del contenedor según sea necesario */
+    /*border: 2px solid #000; /* Agrega un borde para visualizar el contenedor */
+    /*overflow: hidden; /* Opcional: oculta cualquier parte de los divs que se desborde del contenedor */
+    display: flex; /* Alinea los hijos en una fila */
+    align-items: center; /* Alinea verticalmente los hijos en el centro */
+    filter: drop-shadow(-10px 20px 6px black);
+}
+
+.fto{
+    margin: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.fto img{
+    position: static;
+    width: 100%;
+}
+  
+.Nosotros{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contenedor_info{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90vh; /* Ajusta según el tamaño de tu contenedor */
+}
+
+.Quienes_somos{
+    max-width: 70%;
+    text-align: center;
+    z-index: 1;
+}
+
+.img_condor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22vw; /* Ajusta el tamaño de la imagen según necesites */
+    filter: opacity(0.6);
+    mask-image: radial-gradient(circle farthest-corner,  black 14%, transparent 78%);
+    -webkit-mask-image: radial-gradient(circle farthest-corner,  black 14%, transparent 78%);
+}
+  
+.img_puma {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    filter: opacity(0.8);
+    mask-image: radial-gradient(circle,  black 35%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle,  black 35%, transparent 80%);
+    width: 22vw; /* Ajusta el tamaño de la imagen según necesites */
+}
+
+footer{
+    text-align: center;
+}
+
+footer p{
+    font-size: 13px;
+    font-family: 'Fuente2';
+    color: white;
+}
+
+.Servicios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.caja_servicios{
+    display: flex;
+    width: 90%;
+}
+
+.contenido{
+    margin-top: 5vh;
+}
+
+.caja_servicios p{
+    font-family: 'Fuente2';
+}
+
+.caja_servicios img{
+    width: 72%;
+    position: static;
+    border-radius: 10px;
+}
+
+.servicios_ofrecidos{
+    width: 25%;
+    margin-right: 22px;
+    background-color: #c9b7b7a3;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.servicios_ofrecidos:hover{
+    transform: scale(1.2);
+}
+
+.Ubicacion{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mapa{
+    width: 70vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bbbbbb24;
+    border-radius: 20px;
+}
+
+iframe{
+    border-radius: 20px;
+}
+
+.caja_servicios h2{
+    font-family: 'Fuente2_1';
+}
+
+.Ubicacion h1, .Servicios h1, .Nosotros h1, .navegable_inicio h3, .Reserva h3, .App h2{
+    font-family: 'Fuente2_2';
+    color: rgb(255, 255, 255);
+}
+
+/**************************RESERVAS**************************/
+.App{
+    background-color: #9aa5d145;
+    width: 490px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 12px;
+    border-radius: 17px;
+}
+
+.datos{
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+span{
+    color: red;
+    filter: drop-shadow(0px 0px 0px red);
+}
+
+.reservas{
+    margin-top: 90px;
+}
+
+.encabezadoForm{
+    text-align: center;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+label{
+    display: block;
+    font-family: 'Fuente2';
+    color: aliceblue;
+}
+
+legend{
+    font-family: 'Fuente2_1';
+    color: aliceblue;
+}
+
+button{
+    border-radius: 7px;
+    background: #3c57db00;
+    margin-top: 30px;
+    width: 100%;
+    height: 30px;
+    font-family: fantasy;
+    font-size: 2.5vh;
+    font-family: 'Fuente2_2';
+    color: aliceblue;
+}
+
+input{
+    border-radius: 6px;
+}
