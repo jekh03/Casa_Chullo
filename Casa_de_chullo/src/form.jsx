@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 import { useForm } from 'react-hook-form';
 
 function Formulario() {
+  const {t} = useTranslation()
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const [codigoPais, obtenerCodigoPais] = useState("+51");
@@ -14,8 +17,8 @@ function Formulario() {
   const guardarNumTelefono = (event) => {
     const valorIngresado = event.traget.value;
 
-    if (/^\d*$/.test(inputValue)) {
-      setPhoneNumber(inputValue);
+    if (/^\d*$/.test(valorIngresado)) {
+      obtenerNumTelefono(valorIngresado);
     }
   }
 
@@ -42,32 +45,31 @@ function Formulario() {
 
   return (
     <div className="App">
-      <h2>Haz tu Reserva</h2>
+      <h2>{t("reserva.titulo")}</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='datos'>
-          <label htmlFor="nombre">Nombre:</label>
+          <label htmlFor="nombre">{t("reserva.nombre")}:</label>
           <input
             id="nombre"
             style={{textTransform: "uppercase"}}
             min='2'
             {...register('nombre', { required: true })}
           />
-          {errors.nombre && <span>El nombre es obligatorio</span>}
+          {errors.nombre && <span>{t("el")} {t("reserva.nombre")} {t("reserva.obligatorio")}</span>}
         </div>
 
         <div className='datos'>
-          <label htmlFor="apellido">Apellido:</label>
+          <label htmlFor="apellido">{t("reserva.apellido")}:</label>
           <input
             id="apellido"
             style={{textTransform: "uppercase"}}
             {...register('apellido', { required: true })}
           />
-          {errors.apellido && <span>El apellido es obligatorio</span>}
+          {errors.apellido && <span>{t("el")} {t("reserva.apellido")} {t("reserva.obligatorio")}</span>}
         </div>
-
-        <div className='datos'>
-          <label htmlFor="">Número de celular: </label>
-          <select name="codigo" id="">
+        <div className='datos'> 
+          <label htmlFor="codigoPais">{t("reserva.cod_pais")}: </label>
+          <select id="codigoPais" value={codigoPais} onChange={guardarCodigoPais}>
             <option value="+1">+1 USA</option>
             <option value="+51">+51 PE</option>
             <option value="+34">+34 ES</option>
@@ -81,55 +83,60 @@ function Formulario() {
             <option value="+351">+351 PT</option>
             <option value="+">otro</option>
           </select>
-          <label htmlFor="celular"></label>
+        </div>
+        <div className='datos'>
+          <label htmlFor="celular">{t("reserva.numero")}:</label>
           <input
             id="celular"
+            minLength={7}
+            placeholder='Ingrese numero de telefono'
             {...register('celular', { required: true })}
           />
-          {errors.celular && <span>El número de celular es obligatorio</span>}
+          {errors.celular && <span>{t("el")} {t("reserva.numero")} {t("reserva.obligatorio")}</span>}
         </div>
 
         <div className='datos'>
-          <label htmlFor="num_pasajeros">Número de Pasajeros:</label>
+          <label htmlFor="num_pasajeros">{t("reserva.num_pasajero")}:</label>
           <input
             id="num_pasajeros"
             type="number"
             max='12'
+            min='1'
             {...register('num_pasajeros', { required: true, min: 1 })}
           />
-          {errors.num_pasajeros && <span>El número de pasajeros es obligatorio y debe ser mayor a 0</span>}
+          {errors.num_pasajeros && <span>{t("el")} {t("reserva.num_pasajero")} {t("reserva.obligatorio")}</span>}
         </div>
 
         <div className='datos'>
-          <label htmlFor="fecha_reserva">Fecha de Reserva:</label>
+          <label htmlFor="fecha_reserva">{t("reserva.fecha")}:</label>
           <input
             id="fecha_reserva"
             type="date"
             {...register('fecha_reserva', { required: true })}
           />
-          {errors.fecha_reserva && <span>La fecha de reserva es obligatoria</span>}
+          {errors.fecha_reserva && <span>{t("reserva.fecha")} {t("reserva.obligatorio")}</span>}
         </div>
 
         <div className='datos'>
-          <label htmlFor="hora_reserva">Hora de reserva:</label>
+          <label htmlFor="hora_reserva">{t("reserva.Hora")}:</label>
           <input 
             id="hora_reserva"
             type="time"
             {...register('hora_reserva',{required: true})}
           />
-          {errors.hora_reserva && <span>La hora de reserva es incorrecta</span>}
+          {errors.hora_reserva && <span>{t("reserva.Hora")} {t("reserva.obligatorio")}</span>}
         </div>
 
         <div className='datos'>
           <fieldset>
-            <legend>¿Qué servicios se le ofrece?</legend>
+            <legend>{t("reserva.servicios")}</legend>
             <label>
               <input
                 name="Servicio[]"
                 type="checkbox"
                 value="taller_textil"
                 {...register('servicio', {required:true})}
-              />Taller Textil
+              />{t("Ofrecemos.Taller_textil")}
             </label>
             <label>
               <input 
@@ -137,7 +144,7 @@ function Formulario() {
                 type="checkbox" 
                 value="taller_cocina"
                 {...register('servicio', {required:true})}
-              />Taller de cocina
+              />{t("Ofrecemos.Taller_cocina")}
             </label>
             <label>
               <input 
@@ -145,7 +152,7 @@ function Formulario() {
                 type="checkbox" 
                 value="traiking"
                 {...register('servicio', {required:true})}
-              />Traiking
+              />LLAMA TRACKING
             </label>
             <label>
               <input 
@@ -153,7 +160,7 @@ function Formulario() {
                 type="checkbox" 
                 value="hospedaje"
                 {...register('servicio', {required:true})}
-              />Hospedaje
+              />{t("Ofrecemos.Hospedaje")}
             </label>
             <label>
               <input 
@@ -161,14 +168,14 @@ function Formulario() {
                 type="checkbox" 
                 value="picnic"
                 {...register('servicio', {required:true})}
-              />Picnic
+              />{t("Ofrecemos.Pago")}
             </label>
-            {errors.servicio && <span>seleccione una obcion</span>}
+            {errors.servicio && <span>{t("reserva.seleccione")}</span>}
 
           </fieldset>
         </div>
 
-        <button type="submit">Enviar</button>
+        <button type="submit">{t("Enviar")}</button>
       </form>
     </div>
   );

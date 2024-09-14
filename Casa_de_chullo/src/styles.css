@@ -24,7 +24,7 @@ html{
 
 body{
     background:linear-gradient(#1a0000 3%, rgb(45 6 6 / 99%) 30%);
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
     margin: 0;
     padding:0 25px ;
 }
@@ -90,12 +90,20 @@ h3{
     cursor: pointer;
 }
 
+.navegable_inicio h3:hover, .Reserva h3:hover{
+    color: black;
+    filter: drop-shadow(0px 0px 3px white);
+    font-size: 1.5vw;
+}
+
 .info{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 90vh;
+    animation: fadeOut 2s forwards;
+    animation-timeline: scroll();
 }
 
 .caja_servicios p{
@@ -204,11 +212,22 @@ h3{
     width: 100%;
 }
   
+@keyframes fadeOut {
+    25% { opacity: 0 }
+    30% { opacity: 0.1 }
+    35% { opacity: 0.2; }
+    45% { opacity: 1; }
+    50% { opacity: 0.2; }
+    60% { opacity: 0; }
+}
+
 .Nosotros{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    animation: fadeOut 2s forwards;
+    animation-timeline: scroll();
 }
 
 .contenedor_info{
@@ -261,6 +280,7 @@ footer p{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 }
 
 .caja_servicios{
@@ -272,8 +292,60 @@ footer p{
     margin-top: 5vh;
 }
 
-.caja_servicios p{
+.mostrarDiv{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    animation: fadeIn 0.5s ease;
+    background-color: #dbdbdb;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.mostrarDiv button{
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 10vw;
+    margin:0 30px;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to{
+        opacity: 1;
+        transform: translate(-50%,-50%);
+    }
+}
+
+.informacion_Servicios{
+    height: 100%;
+    position: absolute;
+    background-color: #00000073;
+}
+
+.informacion_Servicios p{
     font-family: 'Fuente2';
+    margin: 0 4vw;
 }
 
 .caja_servicios img{
@@ -289,12 +361,18 @@ footer p{
     border-radius: 10px;
     padding: 5px;
     text-align: center;
+    cursor: pointer;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .servicios_ofrecidos:hover{
     transform: scale(1.2);
 }
+
 
 .Ubicacion{
     display: flex;
@@ -389,3 +467,15 @@ button{
 input{
     border-radius: 6px;
 }
+
+
+.btnIdioma{
+    margin-top: 0;
+}
+/*
+@media (max-width: 600px) {
+    body{
+        background-color: blue;
+    }
+}
+*/
