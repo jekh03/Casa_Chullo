@@ -18,6 +18,10 @@ import LanguageToggle from './leguajes.jsx';
 
 function Header(){
   const {t} = useTranslation();
+  const [stadoMenu, obtenerMenu] = useState(false);
+  const menu =()=>{
+    obtenerMenu(!stadoMenu);
+  }
   return(
     <section className="navegacion">
       <h1>CASA DE CHULLO</h1>
@@ -51,7 +55,22 @@ function Header(){
           <h3>{t("RESERVATION")}</h3>
         </Link>  
       </div>
-      <LanguageToggle></LanguageToggle>
+      <div className="menuObciones" onClick={menu}>☰ Menú</div>
+      <div 
+        className="menu_"
+        style={{display:stadoMenu?'block':'none'}}
+      >
+        <ul>
+          <li><Link to="/">{t("HOME")}</Link></li>
+          <li><a href="/#Servicios">{t("SERVICE")}</a></li>
+          <li><a href="/#Ubicacion">{t("LOCATION")}</a></li>
+          <li><Link to="/reservas">{t("RESERVATION")}</Link></li>
+          <li><LanguageToggle></LanguageToggle></li>
+        </ul>
+      </div>
+      <div className="lenguas">
+        <LanguageToggle></LanguageToggle>
+      </div>
     </section>
   )
 }

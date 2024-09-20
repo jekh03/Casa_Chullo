@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 //--> Dibujar y animar cuadrilateros
-const MIN_DISTANCE = 200; // Distancia mínima entre cuadriláteros
+const MIN_DISTANCE = 10; // Distancia mínima en vw entre cuadriláteros
 
 const getRandomPositionAndSize = () => {
-  const x = Math.random() * (window.innerWidth - 150); // Ajustar según el tamaño máximo
-  const y = Math.random() * (window.innerHeight - 150); // Ajustar según el tamaño máximo
-  const size = Math.random() * 100 + 50; // Tamaño aleatorio entre 50px y 150px
+  const x = Math.random() * (100 - 15); // Ajustar para que no salga del viewport
+  const y = Math.random() * (100 - 15); // Ajustar para que no salga del viewport
+  const size = Math.random() * 10 + 5; // Tamaño aleatorio entre 5vw y 15vw
   return { x, y, size };
 };
 
@@ -45,10 +45,10 @@ const RotatingSquares = () => {
           key={index}
           className="cuadrado"
           style={{
-            top: `${position.y}px`,
-            left: `${position.x}px`,
-            width: `${position.size}px`,
-            height: `${position.size}px`,
+            top: `${position.y}vw`, 
+            left: `${position.x}vw`, 
+            width: `${position.size}vw`, 
+            height: `${position.size}vw`, 
             transform: `rotate(${30 * index}deg)`, // Rotación inicial diferente para cada cuadrilátero
           }}
         />
@@ -58,4 +58,3 @@ const RotatingSquares = () => {
 };
 
 export default RotatingSquares;
-

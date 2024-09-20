@@ -55,7 +55,7 @@ body{
 }
 
 .navegacion h1{
-    font-size: 20px;
+    font-size: 2vw; /*20px*/
     font-family: 'Fuente', sans-serif;
 }
 
@@ -82,11 +82,11 @@ a{
     text-decoration: none; /* Elimina el subrayado */
   color: inherit; /* Hereda el color del texto circundante */
   cursor: pointer; /* Cambia el cursor para que parezca clickeable */
-  padding: 0 20px;
+  padding: 0 2vw; /*20px*/
 }
 
 h3{
-    margin: auto 45px;
+    margin: auto 3vw; /*45px*/
     cursor: pointer;
 }
 
@@ -130,7 +130,7 @@ h3{
     right: 0;
     height: 622px; /* Alto de la imagen */
     width:100vw;
-    overflow: hidden; /* Oculta la parte que sobresale */
+    /*overflow: hidden; /* Oculta la parte que sobresale */
 }
 
 .contenedor_imagen img{
@@ -192,7 +192,7 @@ h3{
 
 .gallery {
     /*position: relative; /* El contenedor debe ser relativo para que los hijos con posición absoluta se posicionen respecto a él */
-    width: 990px; /* Ajusta el tamaño del contenedor según sea necesario */
+    width: 72vw; /* Ajusta el tamaño del contenedor según sea necesario */
     height: 360px; /* Ajusta la altura del contenedor según sea necesario */
     /*border: 2px solid #000; /* Agrega un borde para visualizar el contenedor */
     /*overflow: hidden; /* Opcional: oculta cualquier parte de los divs que se desborde del contenedor */
@@ -284,8 +284,10 @@ footer p{
 }
 
 .caja_servicios{
-    display: flex;
-    width: 90%;
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
 }
 
 .contenido{
@@ -355,8 +357,9 @@ footer p{
 }
 
 .servicios_ofrecidos{
-    width: 25%;
+    width:80%;
     margin-right: 22px;
+    margin-top: 22px;
     background-color: #c9b7b7a3;
     border-radius: 10px;
     padding: 5px;
@@ -472,10 +475,50 @@ input{
 .btnIdioma{
     margin-top: 0;
 }
-/*
-@media (max-width: 600px) {
-    body{
-        background-color: blue;
+
+.menuObciones{
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .navegable, .Reserva, .lenguas{
+        display: none;
+    }
+
+    .navegacion h1{
+        font-size: 4vw;
+    }
+
+    .menuObciones{
+        display: block;
+        z-index: 1;
+    }
+
+    .menu_{
+        position: absolute;
+        right: 0;
+        top: 7%;
+        background-color: #1c2c4a;
+        border-radius: 17px 0px 17px 5px;
+    }
+
+    .menu_ ul{
+        list-style: none;
+        padding: 2px 8px;
+        text-align: right;
+    }
+
+    .menu_ li{
+        margin-bottom: 9px;
+    }
+
+    .contenedor_imagen{
+        height: 100%;
+    }
+
+    .info{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-around;
     }
 }
-*/

@@ -26,9 +26,9 @@ const LanguageToggle = () => {
     };
 
     return (
-        <div>
+        <div className='contIdiomas'>
             <button className="btnIdioma" onClick={toggleLanguage}>
-                {isEnglish ? 'Es' : 'En'}
+                {isEnglish ? 'ES' : 'EN'}
             </button>
         </div>
     );
