@@ -27,6 +27,7 @@ body{
     /*overflow-x: hidden;*/
     margin: 0;
     padding:0 25px ;
+    width: 96%;
 }
 
 .background {
@@ -76,6 +77,12 @@ body{
     justify-content: space-between;
     align-items: center;
     color: aliceblue;
+    width: 100%;
+    position: fixed;
+    padding: 0 3px;
+    background-color: #0e0d0dbf;
+    z-index: 2;
+    left: 0px;
 }
 
 a{
@@ -125,11 +132,10 @@ h3{
 }
 
 .contenedor_imagen{
-    position: relative; /* Para fijar el contenedor en la parte derecha de la pantalla */
-    top: 0;
-    right: 0;
-    height: 622px; /* Alto de la imagen */
-    width:100vw;
+    display: flex;
+    height: auto; /* Alto de la imagen */
+    justify-content: center;
+    align-items: center;
     /*overflow: hidden; /* Oculta la parte que sobresale */
 }
 
@@ -137,11 +143,8 @@ h3{
     filter: drop-shadow(0 0 10px rgb(0, 0, 0, .8));
     -webkit-mask-image: linear-gradient(black 30%,transparent);
     mask-image: linear-gradient(black 30%,transparent);
-    bottom: 0;
-    position: relative;
-    right: 0;
-    top:125px;
-    margin: 0;
+    max-width: 100%;
+    height: auto;
 }
 
 .info, .Nosotros, .Galeria, .Servicios, .Ubicacion{
@@ -287,11 +290,16 @@ footer p{
     display: grid;
     gap: 10px;
     justify-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+    width: 100%;
+    /*align-items: center;*/
 }
 
 .contenido{
-    margin-top: 5vh;
+    /*Para un titulo por debajo de la imagen*/
+    margin-top:5vh;
+
+    
 }
 
 .mostrarDiv{
@@ -357,10 +365,11 @@ footer p{
 }
 
 .servicios_ofrecidos{
+    position: relative; /*falta corregir*/
     width:80%;
     margin-right: 22px;
     margin-top: 22px;
-    background-color: #c9b7b7a3;
+    /*background-color: #c9b7b7a3;*/
     border-radius: 10px;
     padding: 5px;
     text-align: center;
@@ -370,11 +379,48 @@ footer p{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    --x-px: calc(var(--x) * 1px);
+    --y-px: calc(var(--y) * 1px);
+    --border: 2px;
+    background: rgba(255, 255, 255, 0.125);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  
+    &:before {
+      z-index: 1;
+    }
+  
+    &:after {
+      opacity: 0;
+      z-index: 2;
+      transition: opacity 0.4s ease;
+      background: radial-gradient(800px circle at var(--x-px) var(--y-px), rgba(192, 188, 188, 0.3), transparent 40%);;
+    }
+  
+    &:hover:after {
+      opacity: 1;
+    }
 }
 
 .servicios_ofrecidos:hover{
     transform: scale(1.2);
 }
+
+.servicios_ofrecidos:hover .contenido {
+    opacity: 1; /* Mostrar el contenido al hacer hover */
+}
+
 
 
 .Ubicacion{
@@ -442,6 +488,7 @@ span{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding-top: 12vh;
 }
 
 label{
@@ -478,6 +525,36 @@ input{
 
 .menuObciones{
     display: none;
+}
+
+@media (min-width:500px){
+    .contenido{
+        /*titulo cesondido al hacer un hover*/
+        opacity: 0;
+        margin-top: 0;
+        background: rgb(0 0 0 / 78%);
+        border-radius: inherit;
+        color: white;
+        text-decoration: none;
+        z-index: 1;
+        position: absolute;
+        inset: var(--border);
+        display: flex;
+        justify-content: center; /* Centrar horizontalmente */
+        align-items: center; /* Centrar verticalmente */
+        text-align: center; /* Asegurar que el texto esté centrado si es multilinea */
+
+        /* Ajustes para los elementos internos 
+        > strong {
+            font-size: 125%;
+        }
+
+        > span {
+            opacity: 0.7;
+        }
+            */
+        
+    }
 }
 
 @media (max-width: 500px) {
@@ -520,5 +597,50 @@ input{
         display: flex;
         flex-direction: column-reverse;
         justify-content: space-around;
+    }
+
+    .Nosotros{
+        animation: none;
+    }
+
+    .Nosotros p{
+        font-size: 2vh;
+    }
+
+    .Quienes_somos{
+        max-width: 95%;
+    }
+
+    .Servicios {
+        height: auto;
+    }
+
+    .caja_servicios{
+        grid-template-columns: repeat(auto-fill, minmax(28vw, 1fr));
+    }
+
+    .caja_servicios h2{
+        font-size: 100%;
+    }
+
+    /*Redimensionar llas componentes del formulario*/
+    /*Telefonos moviles*/
+
+    .App{
+        width: 76vw;
+        padding: 4%;
+        margin: 3vh 0;
+    }
+
+    .App h2{
+        font-size: 100%;
+    }
+
+    .App label{
+        font-size: 80%;
+    }
+
+    footer p{
+        font-size: 20%;
     }
 }

@@ -5,14 +5,14 @@ import condor from './imagenes/condor.png'
 import puma from './imagenes/puma.png'
 import tejido from './imagenes/artesania.jpg'
 import comida from './imagenes/comida.jpg'
-import traiking from './imagenes/traiking.jpg'
+import traiking from './imagenes/llamaTraking.jpg'
 import hospedaje from './imagenes/hospedaje.jpg'
-import picnic from './imagenes/picnic.jpg'
+import picnic from './imagenes/pago.jpg'
 import RotatingSquares from './animaciones.jsx';
 import AnimatedBox from "./animacionesgaleria.jsx";
 import Footer from './footer.jsx';
 import Formulario from './form.jsx';
-import {useState} from "react";
+import {useState, useLayoutEffect} from "react";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from './leguajes.jsx';
 
@@ -97,6 +97,28 @@ function Inicio(){
       [index]: !estadoPrevio[index],
     }));
   }
+  
+  
+  useLayoutEffect(() => {
+    const caracteristicasElementos = document.querySelectorAll(".servicios_ofrecidos");
+  
+    caracteristicasElementos.forEach((caracteristicaElemento) => {
+      caracteristicaElemento.addEventListener("pointermove", (event) => {
+        const reaccionar = caracteristicaElemento.getBoundingClientRect();
+        caracteristicaElemento.style.setProperty("--x", `${event.clientX - reaccionar.left}`);
+        caracteristicaElemento.style.setProperty("--y", `${event.clientY - reaccionar.top}`);
+      });
+    });
+  
+    return () => {
+      // Limpieza de los event listeners cuando el componente se desmonta
+      caracteristicasElementos.forEach((caracteristicaElemento) => {
+        caracteristicaElemento.removeEventListener("pointermove", () => {});
+      });
+    };
+  }, []);
+  
+  
 
   return (
     <>

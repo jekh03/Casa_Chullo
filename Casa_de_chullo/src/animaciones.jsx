@@ -45,7 +45,7 @@ const RotatingSquares = () => {
           key={index}
           className="cuadrado"
           style={{
-            top: `${position.y}vw`, 
+            top: `${position.y}vh`, 
             left: `${position.x}vw`, 
             width: `${position.size}vw`, 
             height: `${position.size}vw`, 

@@ -3,24 +3,9 @@ import { useTranslation } from "react-i18next";
 import { useForm } from 'react-hook-form';
 
 function Formulario() {
-  const {t} = useTranslation()
+  const {t} = useTranslation();
 
   const { register, handleSubmit, formState: { errors } } = useForm();
-
-  const [codigoPais, obtenerCodigoPais] = useState("+51");
-  const [numTelefono, obtenerNumTelefono] = useState("");
-
-  const guardarCodigoPais = (event) => {
-    obtenerCodigoPais(event.target.value);
-  }
-
-  const guardarNumTelefono = (event) => {
-    const valorIngresado = event.traget.value;
-
-    if (/^\d*$/.test(valorIngresado)) {
-      obtenerNumTelefono(valorIngresado);
-    }
-  }
 
   const onSubmit = async (data) => {
     try {
@@ -67,30 +52,36 @@ function Formulario() {
           />
           {errors.apellido && <span>{t("el")} {t("reserva.apellido")} {t("reserva.obligatorio")}</span>}
         </div>
-        <div className='datos'> 
+        
+        <div className='datos'>
           <label htmlFor="codigoPais">{t("reserva.cod_pais")}: </label>
-          <select id="codigoPais" value={codigoPais} onChange={guardarCodigoPais}>
-            <option value="+1">+1 USA</option>
-            <option value="+51">+51 PE</option>
-            <option value="+34">+34 ES</option>
-            <option value="+52">+52 MX</option>
-            <option value="+54">+54 AR</option>
-            <option value="+56">+56 CH</option>
-            <option value="+57">+57 CO</option>
-            <option value="+55">+55 BR</option>
-            <option value="+593">+593 EC</option>
-            <option value="+33">+33 FR</option>
-            <option value="+351">+351 PT</option>
+          <select 
+            id="codigoPais" 
+            {...register('codigoPais', { required: true })} // Deja que React Hook Form maneje el valor
+          >
+            <option value="+1">USA +1</option>
+            <option value="+51">PERU +51</option>
+            <option value="+34">ESPAÑA +34</option>
+            <option value="+52">MEXICO +52</option>
+            <option value="+54">ARGENTINA +54</option>
+            <option value="+56">CHILE +56</option>
+            <option value="+57">COLOMBIA +57</option>
+            <option value="+55">BRAZIL +55</option>
+            <option value="+593">ECUADOR +593</option>
+            <option value="+33">FRANCIA +33</option>
+            <option value="+351">PORTUGAL +351</option>
             <option value="+">otro</option>
           </select>
+          {errors.codigoPais && <span>{t("reserva.cod_pais")} {t("reserva.obligatorio")}</span>}
         </div>
+
         <div className='datos'>
           <label htmlFor="celular">{t("reserva.numero")}:</label>
           <input
             id="celular"
             minLength={7}
             placeholder='Ingrese numero de telefono'
-            {...register('celular', { required: true })}
+            {...register('celular', { required: true, pattern: /^\d+$/ })} // Usar expresión regular para solo números
           />
           {errors.celular && <span>{t("el")} {t("reserva.numero")} {t("reserva.obligatorio")}</span>}
         </div>
@@ -122,7 +113,7 @@ function Formulario() {
           <input 
             id="hora_reserva"
             type="time"
-            {...register('hora_reserva',{required: true})}
+            {...register('hora_reserva', { required: true })}
           />
           {errors.hora_reserva && <span>{t("reserva.Hora")} {t("reserva.obligatorio")}</span>}
         </div>
@@ -135,7 +126,7 @@ function Formulario() {
                 name="Servicio[]"
                 type="checkbox"
                 value="taller_textil"
-                {...register('servicio', {required:true})}
+                {...register('servicio', { required: true })}
               />{t("Ofrecemos.Taller_textil")}
             </label>
             <label>
@@ -143,7 +134,7 @@ function Formulario() {
                 name="Servicio[]"
                 type="checkbox" 
                 value="taller_cocina"
-                {...register('servicio', {required:true})}
+                {...register('servicio', { required: true })}
               />{t("Ofrecemos.Taller_cocina")}
             </label>
             <label>
@@ -151,7 +142,7 @@ function Formulario() {
                 name="Servicio[]"
                 type="checkbox" 
                 value="traiking"
-                {...register('servicio', {required:true})}
+                {...register('servicio', { required: true })}
               />LLAMA TRACKING
             </label>
             <label>
@@ -159,7 +150,7 @@ function Formulario() {
                 name="Servicio[]"
                 type="checkbox" 
                 value="hospedaje"
-                {...register('servicio', {required:true})}
+                {...register('servicio', { required: true })}
               />{t("Ofrecemos.Hospedaje")}
             </label>
             <label>
@@ -167,11 +158,10 @@ function Formulario() {
                 name="Servicio[]"
                 type="checkbox" 
                 value="picnic"
-                {...register('servicio', {required:true})}
+                {...register('servicio', { required: true })}
               />{t("Ofrecemos.Pago")}
             </label>
             {errors.servicio && <span>{t("reserva.seleccione")}</span>}
-
           </fieldset>
         </div>
 

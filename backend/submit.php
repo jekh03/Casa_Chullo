@@ -16,6 +16,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 $nombre = $data['nombre'];
 $apellido = $data['apellido'];
+$codigoPais = $data['codigoPais'];  // Corregir nombre de campo
 $celular = $data['celular'];
 $num_pasajeros = $data['num_pasajeros'];
 $fecha_reserva = $data['fecha_reserva'];
@@ -23,8 +24,8 @@ $hora_reserva = $data['hora_reserva'];
 $servicio = json_encode($data['servicio']); // Convertir el array a JSON
 
 // Preparar la consulta
-$stmt = $conn->prepare("INSERT INTO reserva_clientes (nombre, apellido, celular, num_pasajeros, fecha_reserva, hora_reserva, servicio) VALUES (?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssisss", $nombre, $apellido, $celular, $num_pasajeros, $fecha_reserva, $hora_reserva, $servicio);
+$stmt = $conn->prepare("INSERT INTO reserva_clientes (nombre, apellido, codPais, celular, num_pasajeros, fecha_reserva, hora_reserva, servicio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssissss", $nombre, $apellido, $codigoPais, $celular, $num_pasajeros, $fecha_reserva, $hora_reserva, $servicio);
 
 // Ejecutar la consulta
 if ($stmt->execute()) {
@@ -37,3 +38,4 @@ if ($stmt->execute()) {
 $stmt->close();
 $conn->close();
 ?>
+
