@@ -11,5 +11,8 @@
   "description": "",
   "dependencies": {
     "@react-spring/web": "^9.7.4"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
