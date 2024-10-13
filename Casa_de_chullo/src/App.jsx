@@ -1,5 +1,5 @@
 import "./styles.css";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import llamadaPortada from './imagenes/llama_portada.png'
 import condor from './imagenes/condor.png'
 import puma from './imagenes/puma.png'
@@ -329,7 +329,7 @@ function Reservas(){
 
 export function App() {
   return (
-    <Router>
+    <Router basename="/Casa_Chullo">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Inicio />} />

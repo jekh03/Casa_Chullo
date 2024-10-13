@@ -1,5 +1,5 @@
 {
-  "homepage": "https://jekh03.github.io/Casa_Chullo",
+  "homepage": "https://jekh03.github.io/Casa_Chullo/",
   "name": "casa-de-chullo",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.4",
