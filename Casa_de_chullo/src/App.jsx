@@ -1,6 +1,6 @@
 import "./styles.css";
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
-import llamadaPortada from './imagenes/llama_portada.png'
+import llamadaPortada from './imagenes/alpaca.png'
 import condor from './imagenes/condor.png'
 import puma from './imagenes/puma.png'
 import tejido from './imagenes/artesania.jpg'
@@ -8,7 +8,6 @@ import comida from './imagenes/comida.jpg'
 import traiking from './imagenes/llamaTraking.jpg'
 import hospedaje from './imagenes/hospedaje.jpg'
 import picnic from './imagenes/pago.jpg'
-import RotatingSquares from './animaciones.jsx';
 import AnimatedBox from "./animacionesgaleria.jsx";
 import Footer from './footer.jsx';
 import Formulario from './form.jsx';
@@ -16,35 +15,73 @@ import {useState, useLayoutEffect} from "react";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from './leguajes.jsx';
 
-function Header(){
-  const {t} = useTranslation();
+function Header() {
+  const { t } = useTranslation();
   const [stadoMenu, obtenerMenu] = useState(false);
-  const menu =()=>{
+  
+
+  const menu = () => {
     obtenerMenu(!stadoMenu);
-  }
-  return(
+  };
+
+  // Función para hacer scroll hacia la sección correspondiente
+  const scrollToSection = (sectionId) => {
+    event.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
+  return (
     <section className="navegacion">
-      <h1>CASA DE CHULLO</h1>
+      <h1>TEXTILERIA</h1>
       <section className="navegable">
         <div className="navegable_inicio">
-        <Link 
-          to="/" 
-          className="navegacion-link"
-        >
-          <h3>{t("HOME")}</h3>
-        </Link>
-        <a 
-          href="/#Servicios" 
-          className="navegacion-link"
-        >
-          <h3>{t("SERVICE")}</h3>
-        </a>
-        <a 
-          href="/#Ubicacion" 
-          className="navegacion-link"
-        >
-          <h3>{t("LOCATION")}</h3>
-        </a>
+          <a
+             
+            onClick={(e) => {
+              if (e.target.href) {
+                // Si el enlace tiene un href, no prevengas el comportamiento por defecto (navegar a otra página)
+                return;
+              }
+              scrollToSection("Inicio", e);  // Al hacer clic se hace scroll a la sección de Inicio
+            }} 
+            className="navegacion-link" 
+            href="#"
+          >
+            <Link 
+              to="/" 
+            >
+              <h3>{t("HOME")}</h3>
+            </Link> 
+            
+          </a>
+          <a 
+            onClick={(e) => scrollToSection("nosotros", e)} // Al hacer clic se hace scroll a la sección de servicios
+            className="navegacion-link"
+            href="#"
+          >
+            <h3>{t("Nosotros")}</h3>
+          </a>
+          <a 
+            onClick={(e) => scrollToSection("Servicios", e)} // Al hacer clic se hace scroll a la sección de servicios
+            className="navegacion-link"
+            href="#"
+          >
+            <h3>{t("SERVICE")}</h3>
+          </a>
+          
+          <a 
+            onClick={(e) => scrollToSection("Ubicacion", e)} // Al hacer clic se hace scroll a la sección de ubicación
+            className="navegacion-link"
+            href="#"
+          >
+            <h3>{t("LOCATION")}</h3>
+          </a>
         </div>
       </section>
       <div className="Reserva">
@@ -58,12 +95,17 @@ function Header(){
       <div className="menuObciones" onClick={menu}>☰ Menú</div>
       <div 
         className="menu_"
-        style={{display:stadoMenu?'block':'none'}}
+        style={{ display: stadoMenu ? 'block' : 'none' }}
       >
         <ul>
-          <li><Link to="/">{t("HOME")}</Link></li>
-          <li><a href="/#Servicios">{t("SERVICE")}</a></li>
-          <li><a href="/#Ubicacion">{t("LOCATION")}</a></li>
+          <li><a onClick={() => scrollToSection("Inicio")} href="#"> <Link 
+              to="/" 
+            >
+              {t("HOME")}
+            </Link> </a></li>
+          <li><a onClick={() => scrollToSection("nosotros")} href="#"> {t("Nosotros")}</a></li>
+          <li><a onClick={() => scrollToSection("Servicios")} href="#"> {t("SERVICE")}</a></li>
+          <li><a onClick={() => scrollToSection("Ubicacion")} href="#"> {t("LOCATION")}</a></li>
           <li><Link to="/reservas">{t("RESERVATION")}</Link></li>
           <li><LanguageToggle></LanguageToggle></li>
         </ul>
@@ -72,7 +114,7 @@ function Header(){
         <LanguageToggle></LanguageToggle>
       </div>
     </section>
-  )
+  );
 }
 
 function Inicio(){
@@ -123,11 +165,10 @@ function Inicio(){
   return (
     <>
     <div className="background">
-      <RotatingSquares />
       <section id="Inicio" className="Inicio">
-        
-        <section className="info">
+        <section className="info" id="info">
           <p>{t("Inicio.TextInicio")} <strong>{t("Inicio.TextInicioFuerte")}</strong></p>
+          <h1>LA CASA DEL CHULLO</h1>
           <div className="contenedor_imagen">
             <img src={llamadaPortada}/>
           </div>
@@ -139,7 +180,7 @@ function Inicio(){
       <AnimatedBox />
     </section>
     
-    <section className="Nosotros">
+    <section className="Nosotros" id="nosotros">
       <h1>{t("Somos.Titulo")}</h1>
       <div className="contenedor_info">
         <img src={condor} alt="condor" className="img_condor"/>
@@ -243,7 +284,7 @@ function Inicio(){
       </div>
       <div className="informacion_Servicios">
         {isOpen[1] &&(
-          <div className="mostrarDiv">
+          <div className="mostrarDiv" >
             <p>{t("Ofrecemos.tex_descripcion")}</p>
             <div>
               <button onClick={()=>abrirContenido(1)}>{t("Cerrar")}</button>
@@ -301,7 +342,7 @@ function Inicio(){
     <section id="Ubicacion" className="Ubicacion">
     <h1>{t("Donde_estamos")}</h1>
       <div className="mapa">
-        <iframe
+        <iframe className="Mapa"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.3257539492297!2d-72.04943302539394!3d-13.392144568406772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916dd91926ccec6d%3A0xfc6abb98a8a5ab72!2sCentro%20Textil%20La%20Casa%20del%20Chullo!5e0!3m2!1ses-419!2spe!4v1724107048742!5m2!1ses-419!2spe"
           width="600"
           height="450"
@@ -320,7 +361,6 @@ function Inicio(){
 function Reservas(){
   return(
     <div className="formulario">
-      <RotatingSquares />
       <Formulario></Formulario>
     </div>
     

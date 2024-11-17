@@ -18,46 +18,55 @@
     src: url('./fonts/static/JosefinSans-Bold.ttf');
 }
 
+@font-face {
+    font-family: 'Fuentetitulo';
+    src: url('./fonts/CinzelDecorative-Black.ttf');
+}
+
+
 html{
     scroll-behavior: smooth;
 }
 
 body{
-    background:linear-gradient(#1a0000 3%, rgb(45 6 6 / 99%) 30%);
+    background: black;
     /*overflow-x: hidden;*/
     margin: 0;
-    padding:0 25px ;
-    width: 96%;
+    /*padding:0 25px ;*/
+    width: 100%;
 }
 
 .background {
     position: relative;
     width: 100%;
     height: 100%;
+    background-image: linear-gradient(to bottom, rgb(247 247 247 / 0%) 70%, rgb(49 46 46)), url(/Casa_Chullo/src/imagenes/fondo.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
-@keyframes rotar {
-    0% {
-        transform: rotate(0deg); /* Estado inicial */
-    }
-    100% {
-        transform: rotate(360deg); /* Rotación completa */
-    }
+.texto h1{
+    font-size: 5rem;
+    font-weight: bold;
+    color: transparent;
+    background: url("./videos/f4bf7caac57bccaf889738ff8e9560a2.webm") no-repeat center center;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
 }
-  
-.cuadrado {
-    position: absolute;
-    background-color: rgba(248, 248, 248, 0.068); /* Color blanco semitransparente */
-    width: 100px;
-    height: 100px;
-    transform-origin: center; /* Rotar alrededor del centro */
-    animation: rotar 240s linear infinite; /* Aplicar animación de rotación */
-    z-index: -1;
-}
+
 
 .navegacion h1{
-    font-size: 2vw; /*20px*/
-    font-family: 'Fuente', sans-serif;
+    font-size: 1vw; /*20px*/
+    font-family: 'Fuentetitulo', sans-serif;
+    margin: 0 10px;
+}
+
+.lenguas{
+    margin: 0 10px;
 }
 
 .navegable{
@@ -78,18 +87,20 @@ body{
     align-items: center;
     color: aliceblue;
     width: 100%;
-    position: fixed;
-    padding: 0 3px;
+    position: sticky;
     background-color: #0e0d0dbf;
     z-index: 2;
-    left: 0px;
+    border-radius: 4px;
+    margin-top: 4px;
+    top: 0;
 }
 
 a{
     text-decoration: none; /* Elimina el subrayado */
-  color: inherit; /* Hereda el color del texto circundante */
-  cursor: pointer; /* Cambia el cursor para que parezca clickeable */
-  padding: 0 2vw; /*20px*/
+    color: inherit; /* Hereda el color del texto circundante */
+    cursor: pointer; /* Cambia el cursor para que parezca clickeable */
+    padding: 0 2vw; /*20px*/
+    display: contents;
 }
 
 h3{
@@ -100,18 +111,19 @@ h3{
 .navegable_inicio h3:hover, .Reserva h3:hover{
     color: black;
     filter: drop-shadow(0px 0px 3px white);
-    font-size: 1.5vw;
 }
 
 .info{
     display: flex;
+    flex-direction: column-reverse;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     animation: fadeOut 2s forwards;
     animation-timeline: scroll();
 }
+
 
 .caja_servicios p{
     font-weight: bold;
@@ -123,10 +135,21 @@ h3{
     color:aliceblue
 }
 
+.info p{
+    text-align: center;
+    filter: drop-shadow(2px 2px 1px black);
+}
+
+.info h1{
+    font-family: 'Fuente';
+    filter: drop-shadow(4px 5px 1px black);
+    font-size: 40px;
+    color: #ecf4fd;
+}
 
 .Nosotros p, .info p{
     color: aliceblue;
-    padding: 10px;
+    padding: 42px;
     font-size: 2vw;
     font-family: 'Fuente2';
 }
@@ -140,15 +163,19 @@ h3{
 }
 
 .contenedor_imagen img{
+    /*
     filter: drop-shadow(0 0 10px rgb(0, 0, 0, .8));
     -webkit-mask-image: linear-gradient(black 30%,transparent);
     mask-image: linear-gradient(black 30%,transparent);
-    max-width: 100%;
+    */
+    filter: drop-shadow(0 0 3px white);
+    max-width: 60%;
     height: auto;
 }
 
 .info, .Nosotros, .Galeria, .Servicios, .Ubicacion{
     margin-bottom: 200px;
+    background: linear-gradient(to bottom, rgb(0 0 0 / 80%), rgb(0 0 0 / 51%)), radial-gradient(circle, #625e5e, transparent);
 }
 
 .imagenes{
@@ -284,6 +311,7 @@ footer p{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding: 0 20px;
 }
 
 .caja_servicios{
@@ -298,8 +326,7 @@ footer p{
 .contenido{
     /*Para un titulo por debajo de la imagen*/
     margin-top:5vh;
-
-    
+  
 }
 
 .mostrarDiv{
@@ -315,9 +342,13 @@ footer p{
     justify-content: space-around;
     align-items: center;
     animation: fadeIn 0.5s ease;
-    background-color: #dbdbdb;
     border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
     padding: 20px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .botones{
@@ -351,6 +382,7 @@ footer p{
     height: 100%;
     position: absolute;
     background-color: #00000073;
+    z-index: 2;
 }
 
 .informacion_Servicios p{
@@ -442,6 +474,8 @@ footer p{
 
 iframe{
     border-radius: 20px;
+    width: 90%;
+    height: auto;
 }
 
 .caja_servicios h2{
@@ -487,8 +521,7 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding-top: 12vh;
+    min-height: 75vh;
 }
 
 label{
@@ -525,6 +558,30 @@ input{
 
 .menuObciones{
     display: none;
+}
+
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 10vh;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    filter: drop-shadow(1px 1px 4px #099023);
+}
+
+.whatsapp-link:hover {
+    background-color: #1da851;
+}
+
+.whatsapp{
+    width: 100px;
+    height: auto;
 }
 
 @media (min-width:500px){
@@ -569,6 +626,7 @@ input{
     .menuObciones{
         display: block;
         z-index: 1;
+        margin-right: 9px;
     }
 
     .menu_{
@@ -576,12 +634,21 @@ input{
         right: 0;
         top: 7%;
         background-color: #1c2c4a;
-        border-radius: 17px 0px 17px 5px;
+        border-radius: 3px;
+    }
+
+    .whatsapp-link{
+        font-size: 5vh;
+    }
+
+    a{
+        width: 38vh;
+        text-align: center;
     }
 
     .menu_ ul{
         list-style: none;
-        padding: 2px 8px;
+        padding: 13px 8px;
         text-align: right;
     }
 
@@ -595,7 +662,7 @@ input{
 
     .info{
         display: flex;
-        flex-direction: column-reverse;
+        /*flex-direction: column-reverse;*/
         justify-content: space-around;
     }
 
@@ -603,9 +670,9 @@ input{
         animation: none;
     }
 
-    .Nosotros p{
-        font-size: 2vh;
-    }
+    .Nosotros p, .info p {
+        font-size: 4vw;
+    }    
 
     .Quienes_somos{
         max-width: 95%;
@@ -621,6 +688,10 @@ input{
 
     .caja_servicios h2{
         font-size: 100%;
+    }
+
+    .mapa{
+        height: 30vh;
     }
 
     /*Redimensionar llas componentes del formulario*/

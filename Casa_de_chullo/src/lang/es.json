@@ -1,5 +1,6 @@
 {
     "HOME": "Inicio",
+    "Nosotros": "Nosotros",
     "SERVICE": "Servicios",
     "LOCATION": "Uvicación",
     "RESERVATION": "Reservar",
@@ -51,7 +52,9 @@
         "servicios":"¿Qué servicios se le ofrece?",
 
         "obligatorio": "es obligatorio",
-        "seleccione": "Seleccione una obcion"
+        "seleccione": "Seleccione una obcion",
+
+        "Realiza_reserva":"Realiza tu reserva"
     }
 
 }

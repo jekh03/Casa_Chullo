@@ -3,8 +3,9 @@ import { useTranslation } from "react-i18next";
 import { useForm } from 'react-hook-form';
 
 function Formulario() {
+  
   const {t} = useTranslation();
-
+  /*
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
@@ -167,6 +168,71 @@ function Formulario() {
 
         <button type="submit">{t("Enviar")}</button>
       </form>
+    </div>
+  );*/
+  
+  return (
+    <div className="formulario">
+      {/* <Formulario></Formulario> */}
+      
+      <a
+        href="https://wa.me/+51926407674?text=Hola%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios"
+        className="whatsapp-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t("reserva.Realiza_reserva")}
+        <svg
+          className='whatsapp'
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+        >
+          <style>
+            {`@keyframes chatMotion3 {
+              0%, to { transform: translateY(0); }
+              50% { transform: translateY(-1px); }
+            }`}
+          </style>
+          <path
+            fill="#0A0A30"
+            fillRule="evenodd"
+            d="M12.121 6.74a5.25 5.25 0 00-4.414 8.093l.177.274-1.057 1.986 2.244-.82.256.162A5.25 5.25 0 1012.12 6.74zm-6.75 5.25a6.75 6.75 0 113.422 5.874l-2.52.876a.95.95 0 01-1.115-1.162l1.115-2.216a6.722 6.722 0 01-.902-3.372z"
+            clipRule="evenodd"
+          />
+          <circle
+            cx="9"
+            cy="12"
+            r="1"
+            fill="#265BFF"
+            style={{
+              animation: "chatMotion3 .8s ease-in-out infinite",
+            }}
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="1"
+            fill="#265BFF"
+            style={{
+              animation: "chatMotion3 .8s ease-in-out infinite",
+              animationDelay: ".3s",
+            }}
+          />
+          <circle
+            cx="15"
+            cy="12"
+            r="1"
+            fill="#265BFF"
+            style={{
+              animation: "chatMotion3 .8s ease-in-out infinite",
+              animationDelay: ".5s",
+            }}
+          />
+        </svg>
+      </a>
     </div>
   );
 }
