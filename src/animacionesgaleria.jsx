@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import catarata from './imagenes/catarata.jpg'
 import torre from './imagenes/torre.jpg'
 import muestra_teñido from './imagenes/muestra_teñido.jpg'
+import muestra_teñido1 from './imagenes/ftocarrusel1.jpg'
+import muestra_teñido2 from './imagenes/ftocarrusel2.jpg'
 import { useSpring, animated } from '@react-spring/web';
 
 // Definición del componente AnimatedBox
@@ -147,8 +149,8 @@ const AnimatedBox = () => {
       <animated.div className="fto" style={headStyles} onClick={handleClick}><img src={catarata}></img></animated.div>
       <animated.div className="fto" style={bodyStyles} onClick={handleClick}><img src={torre}></img></animated.div>
       <animated.div className="fto" style={bodyStyles2} onClick={handleClick}><img src={muestra_teñido}></img></animated.div>
-      <animated.div className="fto" style={bodyStyles3} onClick={handleClick}><img src={catarata}></img></animated.div>
-      <animated.div className="fto" style={bodyStyles4} onClick={handleClick}><img src={catarata}></img></animated.div>
+      <animated.div className="fto" style={bodyStyles3} onClick={handleClick}><img src={muestra_teñido1}></img></animated.div>
+      <animated.div className="fto" style={bodyStyles4} onClick={handleClick}><img src={muestra_teñido2}></img></animated.div>
     </div>
   );
 }

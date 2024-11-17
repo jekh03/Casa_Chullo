@@ -1,5 +1,6 @@
 {
     "HOME": "Home",
+    "Nosotros": "About us",
     "SERVICE": "Service",
     "LOCATION": "Location",
     "RESERVATION": "Reserve",
@@ -51,7 +52,8 @@
         "servicios":"What services are offered?",
         
         "obligatorio": "is mandatory",
-        "seleccione": "Select an option"
+        "seleccione": "Select an option",
+        "Realiza_reserva":"Make your reservation"
     }
 
 }
