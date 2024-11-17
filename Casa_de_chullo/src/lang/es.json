@@ -1,0 +1,60 @@
+{
+    "HOME": "Inicio",
+    "Nosotros": "Nosotros",
+    "SERVICE": "Servicios",
+    "LOCATION": "Uvicación",
+    "RESERVATION": "Reservar",
+
+    "el": "El",
+
+    "Cerrar": "Cerrar",
+    "Enviar":"Enviar",
+
+    "Inicio":{
+        "TextInicio": "Descubre el arte ancestral del teñido y tejido, explora nuestras exquisitas prendas de lana de alpaca, y disfruta de la auténtica cocina local.",
+        "TextInicioFuerte": "¡Sumérgete en una experiencia cultural única y cálida!"
+    },
+
+    "Somos":{
+        "Titulo": "QUIENES SOMOS",
+        "en": "En",
+        "descripcion1": "nos dedicamos a preservar y promover el arte ancestral del teñido y tejido tradicional. Fundado con la misión de mantener vivas las técnicas textiles que han sido transmitidas de generación en generación, nuestro centro es un espacio donde la historia, la cultura y la sostenibilidad se encuentran.",
+        "nuestro_equipo": "Nuestro equipo",
+        "descripcion2": "de artesanos y colaboradores está comprometido con la creación de productos de alta calidad, utilizando lana de alpaca y procesos respetuosos con el medio ambiente. Nos enorgullece contribuir al desarrollo de nuestra comunidad, ofreciendo empleo, formación y una experiencia cultural única para nuestros visitantes.",
+        "descripcion3": "no solo encontrarás prendas artesanales excepcionales, sino también la oportunidad de sumergirte en la rica tradición cultural de nuestra región, a través de talleres, degustaciones y un entorno de hospedaje que refleja la autenticidad de nuestras raíces."
+    },
+
+    "Ofrecemos":{
+        "Titulo": "ESTAMOS OFRECIENDO",
+        "Taller_textil": "TALLER TEXTIL",
+        "tex_descripcion": "Sumérgete en la tradición artesanal aprendiendo sobre el proceso de teñido y tejido natural de las prendas típicas de la zona. Descubre cómo se obtienen los vibrantes colores utilizando plantas naturales y conoce cada paso para crear las hermosas telas que caracterizan a nuestra cultura.",
+        "Taller_cocina": "TALLER DE COCINA",
+        "coci_descripcion": "Sumérgete en una experiencia culinaria única y descubre los secretos de la auténtica cocina cusqueña. En nuestro taller de cocina, aprenderás a preparar platos tradicionales utilizando ingredientes frescos y locales, guiado por expertos en gastronomía andina. Desde la preparación de la emblemática 'Pachamanca' hasta el delicioso 'Cuy al horno', disfrutarás de una experiencia práctica, llena de sabor y cultura. Ideal para amantes de la comida y viajeros curiosos que deseen llevarse un pedacito del Perú en su paladar y en su corazón.",
+        "llama_descripcion1": "Sumergete en una experiencia única y auténtica para los amantes de la naturaleza y los animales. Acompañado por nuestras amables llamas, podrás explorar senderos escénicos mientras disfrutas de la tranquilidad de la montaña. Las llamas, conocidas por su temperamento calmado y amigable, no solo te harán compañía, sino que también llevarán tu equipo, permitiéndote disfrutar del paisaje sin preocupaciones.",
+        "llama_descripcion2": "Ideal para familias, aventureros o aquellos que buscan una conexión especial con la naturaleza. ¡Únete a nosotros y vive una aventura inolvidable en la compañía de nuestras encantadoras llamas!",
+        "Hospedaje": "HOSPEDAJE",
+        "hosp_descripcion": "Relájate en nuestro acogedor hospedaje en Chinchero. Ofrecemos habitaciones cómodas para que puedas descansar después de un día de actividades. Incluye desayuno y Wi-Fi gratis, ideal para quienes deseen conectarse mientras disfrutan de su estadía.",
+        "Pago": "EXPERIENCIA VIVA DE LOS ANDES",
+        "pago_descripcion": "Sumérgete en este viaje cultural que te llevará a conocer de cerca las tradiciones vivas de la región, desde el ceremonial pago a la Tierra hasta las festividades locales que celebran la cosecha. Participa en rituales ancestrales, aprende sobre las prácticas agrícolas tradicionales y únete a vibrantes bailes que han sido parte de la cultura andina durante siglos. Ideal para quienes buscan una conexión profunda con las raíces culturales y el espíritu de la montaña. Vive una jornada inolvidable explorando y celebrando la rica herencia de los Andes."
+    },
+
+    "Donde_estamos" :"¿DÓNDE ENCONTRARNOS?",
+
+    "reserva": {
+        "titulo":"Realiza tu reserva",
+        "nombre": "Nombres",
+        "apellido": "Apellidos",
+        "cod_pais": "Codigo de pais",
+        "numero": "Número de celular",
+        "num_pasajero": "Número de pasajeros",
+        "fecha": "Fecha de reserva",
+        "Hora":"Hora de reserva estimada",
+        "servicios":"¿Qué servicios se le ofrece?",
+
+        "obligatorio": "es obligatorio",
+        "seleccione": "Seleccione una obcion",
+
+        "Realiza_reserva":"Realiza tu reserva"
+    }
+
+}

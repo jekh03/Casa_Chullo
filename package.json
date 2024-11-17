@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "homepage": "https://jekh03.github.io/Casa_Chullo/",
   "name": "casa-de-chullo",
   "private": true,
@@ -32,5 +33,22 @@
     "gh-pages": "^6.1.1",
     "globals": "^15.9.0",
     "vite": "^5.4.0"
+=======
+  "name": "casa_chullo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@react-spring/web": "^9.7.4"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+>>>>>>> bb8cc7bf96168bed21f64551be6bfb9903e161c9
   }
 }
