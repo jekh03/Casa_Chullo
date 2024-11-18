@@ -1,0 +1,717 @@
+@font-face {
+    font-family: 'Fuente';
+    src: url('./fonts/SquadaOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Fuente2';
+    src: url('./fonts/static/JosefinSans-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Fuente2_1';
+    src: url('./fonts/static/JosefinSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Fuente2_2';
+    src: url('./fonts/static/JosefinSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Fuentetitulo';
+    src: url('./fonts/CinzelDecorative-Black.ttf');
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: black;
+    /*overflow-x: hidden;*/
+    margin: 0;
+    /*padding:0 25px ;*/
+    width: 100%;
+}
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgb(247 247 247 / 0%) 70%, rgb(49 46 46)), url(/Casa_Chullo/src/imagenes/fondo.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.texto h1{
+    font-size: 5rem;
+    font-weight: bold;
+    color: transparent;
+    background: url("./videos/f4bf7caac57bccaf889738ff8e9560a2.webm") no-repeat center center;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.navegacion h1{
+    font-size: 1vw; /*20px*/
+    font-family: 'Fuentetitulo', sans-serif;
+    margin: 0 10px;
+}
+
+.lenguas{
+    margin: 0 10px;
+}
+
+.navegable{
+    display: flex;
+    border-radius: 9px;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navegable_inicio{
+    display: flex;
+    gap: 1rem;
+}
+
+.navegacion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: aliceblue;
+    width: 100%;
+    position: sticky;
+    background-color: #0e0d0dbf;
+    z-index: 2;
+    border-radius: 4px;
+    margin-top: 4px;
+    top: 0;
+}
+
+a{
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color del texto circundante */
+    cursor: pointer; /* Cambia el cursor para que parezca clickeable */
+    padding: 0 2vw; /*20px*/
+    display: contents;
+}
+
+h3{
+    margin: auto 3vw; /*45px*/
+    cursor: pointer;
+}
+
+.navegable_inicio h3:hover, .Reserva h3:hover{
+    color: black;
+    filter: drop-shadow(0px 0px 3px white);
+}
+
+.info{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100vh;
+    animation: fadeOut 2s forwards;
+    animation-timeline: scroll();
+}
+
+
+.caja_servicios p{
+    font-weight: bold;
+    text-shadow: 
+        0.5px 0.5px 0px rgb(63, 64, 70), 
+        -0.5px 0.5px 0px rgb(63, 64, 70), 
+        0.5px -0.5px 0px rgb(63, 64, 70), 
+        -0.5px -0.5px 0px rgb(63, 64, 70);
+    color:aliceblue
+}
+
+.info p{
+    text-align: center;
+    filter: drop-shadow(2px 2px 1px black);
+}
+
+.info h1{
+    font-family: 'Fuente';
+    filter: drop-shadow(4px 5px 1px black);
+    font-size: 40px;
+    color: #ecf4fd;
+}
+
+.Nosotros p, .info p{
+    color: aliceblue;
+    padding: 42px;
+    font-size: 2vw;
+    font-family: 'Fuente2';
+}
+
+.contenedor_imagen{
+    display: flex;
+    height: auto; /* Alto de la imagen */
+    justify-content: center;
+    align-items: center;
+    /*overflow: hidden; /* Oculta la parte que sobresale */
+}
+
+.contenedor_imagen img{
+    /*
+    filter: drop-shadow(0 0 10px rgb(0, 0, 0, .8));
+    -webkit-mask-image: linear-gradient(black 30%,transparent);
+    mask-image: linear-gradient(black 30%,transparent);
+    */
+    filter: drop-shadow(0 0 3px white);
+    max-width: 60%;
+    height: auto;
+}
+
+.info, .Nosotros, .Galeria, .Servicios, .Ubicacion{
+    margin-bottom: 200px;
+    background: linear-gradient(to bottom, rgb(0 0 0 / 80%), rgb(0 0 0 / 51%)), radial-gradient(circle, #625e5e, transparent);
+}
+
+.imagenes{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    margin: 0 10px;
+}
+
+.recuadro1{
+    width: 100px;
+    height: 100px;
+}
+
+.recuadro2{
+    width: 200px;
+    height: 200px;
+}
+
+.recuadro3{
+    width: 300px;
+    height: 300px;
+}
+
+.recuadro4{
+    width: 200px;
+    height: 200px;
+}
+
+.recuadro5{
+    width: 100px;
+    height: 100px;
+}
+
+.Galeria{
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    /*position: relative; /* El contenedor debe ser relativo para que los hijos con posición absoluta se posicionen respecto a él */
+    width: 72vw; /* Ajusta el tamaño del contenedor según sea necesario */
+    height: 360px; /* Ajusta la altura del contenedor según sea necesario */
+    /*border: 2px solid #000; /* Agrega un borde para visualizar el contenedor */
+    /*overflow: hidden; /* Opcional: oculta cualquier parte de los divs que se desborde del contenedor */
+    display: flex; /* Alinea los hijos en una fila */
+    align-items: center; /* Alinea verticalmente los hijos en el centro */
+    filter: drop-shadow(-10px 20px 6px black);
+}
+
+.fto{
+    margin: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.fto img{
+    position: static;
+    width: 100%;
+}
+  
+@keyframes fadeOut {
+    25% { opacity: 0 }
+    30% { opacity: 0.1 }
+    35% { opacity: 0.2; }
+    45% { opacity: 1; }
+    50% { opacity: 0.2; }
+    60% { opacity: 0; }
+}
+
+.Nosotros{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: fadeOut 2s forwards;
+    animation-timeline: scroll();
+}
+
+.contenedor_info{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90vh; /* Ajusta según el tamaño de tu contenedor */
+}
+
+.Quienes_somos{
+    max-width: 70%;
+    text-align: center;
+    z-index: 1;
+}
+
+.img_condor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22vw; /* Ajusta el tamaño de la imagen según necesites */
+    filter: opacity(0.6);
+    mask-image: radial-gradient(circle farthest-corner,  black 14%, transparent 78%);
+    -webkit-mask-image: radial-gradient(circle farthest-corner,  black 14%, transparent 78%);
+}
+  
+.img_puma {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    filter: opacity(0.8);
+    mask-image: radial-gradient(circle,  black 35%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle,  black 35%, transparent 80%);
+    width: 22vw; /* Ajusta el tamaño de la imagen según necesites */
+}
+
+footer{
+    text-align: center;
+}
+
+footer p{
+    font-size: 13px;
+    font-family: 'Fuente2';
+    color: white;
+}
+
+.Servicios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+.caja_servicios{
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+    width: 100%;
+    /*align-items: center;*/
+}
+
+.contenido{
+    /*Para un titulo por debajo de la imagen*/
+    margin-top:5vh;
+  
+}
+
+.mostrarDiv{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    animation: fadeIn 0.5s ease;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.botones{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.mostrarDiv button{
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 10vw;
+    margin:0 30px;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to{
+        opacity: 1;
+        transform: translate(-50%,-50%);
+    }
+}
+
+.informacion_Servicios{
+    height: 100%;
+    position: absolute;
+    background-color: #00000073;
+    z-index: 2;
+}
+
+.informacion_Servicios p{
+    font-family: 'Fuente2';
+    margin: 0 4vw;
+}
+
+.caja_servicios img{
+    width: 72%;
+    position: static;
+    border-radius: 10px;
+}
+
+.servicios_ofrecidos{
+    position: relative; /*falta corregir*/
+    width:80%;
+    margin-right: 22px;
+    margin-top: 22px;
+    /*background-color: #c9b7b7a3;*/
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    --x-px: calc(var(--x) * 1px);
+    --y-px: calc(var(--y) * 1px);
+    --border: 2px;
+    background: rgba(255, 255, 255, 0.125);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  
+    &:before {
+      z-index: 1;
+    }
+  
+    &:after {
+      opacity: 0;
+      z-index: 2;
+      transition: opacity 0.4s ease;
+      background: radial-gradient(800px circle at var(--x-px) var(--y-px), rgba(192, 188, 188, 0.3), transparent 40%);;
+    }
+  
+    &:hover:after {
+      opacity: 1;
+    }
+}
+
+.servicios_ofrecidos:hover{
+    transform: scale(1.2);
+}
+
+.servicios_ofrecidos:hover .contenido {
+    opacity: 1; /* Mostrar el contenido al hacer hover */
+}
+
+
+
+.Ubicacion{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mapa{
+    width: 70vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bbbbbb24;
+    border-radius: 20px;
+}
+
+iframe{
+    border-radius: 20px;
+    width: 90%;
+    height: auto;
+}
+
+.caja_servicios h2{
+    font-family: 'Fuente2_1';
+}
+
+.Ubicacion h1, .Servicios h1, .Nosotros h1, .navegable_inicio h3, .Reserva h3, .App h2{
+    font-family: 'Fuente2_2';
+    color: rgb(255, 255, 255);
+}
+
+/**************************RESERVAS**************************/
+.App{
+    background-color: #9aa5d145;
+    width: 490px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 12px;
+    border-radius: 17px;
+}
+
+.datos{
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+span{
+    color: red;
+    filter: drop-shadow(0px 0px 0px red);
+}
+
+.reservas{
+    margin-top: 90px;
+}
+
+.encabezadoForm{
+    text-align: center;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+
+label{
+    display: block;
+    font-family: 'Fuente2';
+    color: aliceblue;
+}
+
+legend{
+    font-family: 'Fuente2_1';
+    color: aliceblue;
+}
+
+button{
+    border-radius: 7px;
+    background: #3c57db00;
+    margin-top: 30px;
+    width: 100%;
+    height: 30px;
+    font-family: fantasy;
+    font-size: 2.5vh;
+    font-family: 'Fuente2_2';
+    color: aliceblue;
+}
+
+input{
+    border-radius: 6px;
+}
+
+
+.btnIdioma{
+    margin-top: 0;
+}
+
+.menuObciones{
+    display: none;
+}
+
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 10vh;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    filter: drop-shadow(1px 1px 4px #099023);
+}
+
+.whatsapp-link:hover {
+    background-color: #1da851;
+}
+
+.whatsapp{
+    width: 100px;
+    height: auto;
+}
+
+@media (min-width:500px){
+    .contenido{
+        /*titulo cesondido al hacer un hover*/
+        opacity: 0;
+        margin-top: 0;
+        background: rgb(0 0 0 / 78%);
+        border-radius: inherit;
+        color: white;
+        text-decoration: none;
+        z-index: 1;
+        position: absolute;
+        inset: var(--border);
+        display: flex;
+        justify-content: center; /* Centrar horizontalmente */
+        align-items: center; /* Centrar verticalmente */
+        text-align: center; /* Asegurar que el texto esté centrado si es multilinea */
+
+        /* Ajustes para los elementos internos 
+        > strong {
+            font-size: 125%;
+        }
+
+        > span {
+            opacity: 0.7;
+        }
+            */
+        
+    }
+}
+
+@media (max-width: 500px) {
+    .navegable, .Reserva, .lenguas{
+        display: none;
+    }
+
+    .navegacion h1{
+        font-size: 4vw;
+    }
+
+    .menuObciones{
+        display: block;
+        z-index: 1;
+        margin-right: 9px;
+    }
+
+    .menu_{
+        position: absolute;
+        right: 0;
+        top: 7%;
+        background-color: #1c2c4a;
+        border-radius: 3px;
+    }
+
+    .whatsapp-link{
+        font-size: 5vh;
+    }
+
+    a{
+        width: 38vh;
+        text-align: center;
+    }
+
+    .menu_ ul{
+        list-style: none;
+        padding: 13px 8px;
+        text-align: right;
+    }
+
+    .menu_ li{
+        margin-bottom: 9px;
+    }
+
+    .contenedor_imagen{
+        height: 100%;
+    }
+
+    .info{
+        display: flex;
+        /*flex-direction: column-reverse;*/
+        justify-content: space-around;
+    }
+
+    .Nosotros{
+        animation: none;
+    }
+
+    .Nosotros p, .info p {
+        font-size: 4vw;
+    }    
+
+    .Quienes_somos{
+        max-width: 95%;
+    }
+
+    .Servicios {
+        height: auto;
+    }
+
+    .caja_servicios{
+        grid-template-columns: repeat(auto-fill, minmax(28vw, 1fr));
+    }
+
+    .caja_servicios h2{
+        font-size: 100%;
+    }
+
+    .mapa{
+        height: 30vh;
+    }
+
+    /*Redimensionar llas componentes del formulario*/
+    /*Telefonos moviles*/
+
+    .App{
+        width: 76vw;
+        padding: 4%;
+        margin: 3vh 0;
+    }
+
+    .App h2{
+        font-size: 100%;
+    }
+
+    .App label{
+        font-size: 80%;
+    }
+
+    footer p{
+        font-size: 20%;
+    }
+}
