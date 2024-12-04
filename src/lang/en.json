@@ -1,0 +1,59 @@
+{
+    "HOME": "Home",
+    "Nosotros": "About us",
+    "SERVICE": "Service",
+    "LOCATION": "Location",
+    "RESERVATION": "Reserve",
+
+    "el": "The",
+
+    "Cerrar": "Close",
+    "Enviar": "Submit",
+    
+    "Inicio":{
+        "TextInicio": "Discover the ancestral art of dyeing and weaving, explore our exquisite alpaca wool garments, and enjoy authentic local cuisine.",
+        "TextInicioFuerte": "Immerse yourself in a unique and warm cultural experience!."
+    },
+
+    "Somos":{
+        "Titulo": "WHO WE ARE",
+        "en": "At",
+        "descripcion1": "we are dedicated to preserving and promoting the ancestral art of traditional dyeing and weaving. Founded with the mission of keeping alive the textile techniques that have been passed down from generation to generation, our center is a space where history, culture and sustainability converge.",
+        "nuestro_equipo": "Our team of artisans",
+        "descripcion2": "and collaborators is committed to creating high quality products, using alpaca wool and environmentally friendly processes. We are proud to contribute to the development of our community, offering employment, training and a unique cultural experience for our visitors.",
+        "descripcion3": "not only will you find exceptional handcrafted garments, but also the opportunity to immerse yourself in the rich cultural tradition of our region, through workshops, tastings and a lodging environment that reflects the authenticity of our roots."
+    },
+
+    "Ofrecemos":{
+        "Titulo": "WE OFFER YOU",
+        "Taller_textil": "TEXTILE WORKSHOP",
+        "tex_descripcion": "Immerse yourself in the artisan tradition by learning about the process of dyeing and natural weaving of the typical garments of the area. Discover how the vibrant colors are obtained using natural plants and learn each step to create the beautiful fabrics that characterize our culture.",
+        "Taller_cocina": "COOKING WORKSHOP",
+        "coci_descripcion": "Immerse yourself in a unique culinary experience and discover the secrets of authentic Cusco cuisine. In our cooking workshop, you will learn how to prepare traditional dishes using fresh and local ingredients, guided by experts in Andean gastronomy. From the preparation of the emblematic 'Pachamanca' to the delicious 'Cuy al horno', you will enjoy a hands-on experience, full of flavor and culture. Ideal for food lovers and curious travelers who want to take a little piece of Peru in their palate and in their heart.",
+        "llama_descripcion1": "Immerse yourself in a unique and authentic experience for nature and animal lovers. Accompanied by our friendly llamas, you will explore scenic trails while enjoying the tranquility of the mountain. The llamas, known for their calm and friendly temperament, will not only keep you company, but will also carry your equipment, allowing you to enjoy the scenery without worries.",
+        "llama_descripcion2": "Ideal for families, adventurers or those looking for a special connection with nature, join us and live an unforgettable adventure in the company of our charming llamas!",
+        "Hospedaje": "HOSTING",
+        "hosp_descripcion": "Relax in our cozy lodging in Chinchero. We offer comfortable rooms so you can rest after a day of activities. Includes breakfast and free Wi-Fi, ideal for those who want to connect while enjoying their stay.",
+        "Pago": "LIVING EXPERIENCE OF THE ANDES",
+        "pago_descripcion": "Immerse yourself in this cultural journey that will take you up close and personal with the living traditions of the region, from ceremonial payments to the earth to local festivities celebrating the harvest. Participate in ancestral rituals, learn about traditional agricultural practices and join in vibrant dances that have been part of Andean culture for centuries. Ideal for those seeking a deep connection with the cultural roots and spirit of the mountain. Experience an unforgettable journey exploring and celebrating the rich heritage of the Andes."
+    },
+
+    "Donde_estamos" :"WHERE TO FIND US?",
+
+    "reserva":{
+        "titulo":"Make your reservation",
+        "nombre": "Name",
+        "apellido": "Last names",
+        "cod_pais": "Country code",
+        "numero": "Cell phone number",
+        "num_pasajero": "Number of passengers",
+        "fecha": "Reservation date",
+        "Hora":"Estimated reservation time",
+        "servicios":"What services are offered?",
+        
+        "obligatorio": "is mandatory",
+        "seleccione": "Select an option",
+        "Realiza_reserva":"Make your reservation"
+    }
+
+}
