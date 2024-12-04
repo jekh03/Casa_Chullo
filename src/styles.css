@@ -29,7 +29,7 @@ html{
 }
 
 body{
-    background: black;
+    background: linear-gradient(to bottom, rgb(0 0 0), rgb(0 0 0 / 67%)), radial-gradient(circle, #979797, #000000);
     /*overflow-x: hidden;*/
     margin: 0;
     /*padding:0 25px ;*/
@@ -63,6 +63,7 @@ body{
     font-size: 1vw; /*20px*/
     font-family: 'Fuentetitulo', sans-serif;
     margin: 0 10px;
+    filter: drop-shadow(0px 1px 0px white);
 }
 
 .lenguas{
@@ -71,7 +72,6 @@ body{
 
 .navegable{
     display: flex;
-    border-radius: 9px;
     justify-content: center;
     flex-grow: 1;
 }
@@ -85,14 +85,13 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: aliceblue;
+    color: black;
     width: 100%;
     position: sticky;
-    background-color: #0e0d0dbf;
+    background-color: #eeeeef54;
     z-index: 2;
-    border-radius: 4px;
-    margin-top: 4px;
     top: 0;
+    filter: drop-shadow(1px 1px 15px white)
 }
 
 a{
@@ -104,13 +103,13 @@ a{
 }
 
 h3{
-    margin: auto 3vw; /*45px*/
+    margin: auto 2vw; /*45px*/
     cursor: pointer;
 }
 
 .navegable_inicio h3:hover, .Reserva h3:hover{
-    color: black;
-    filter: drop-shadow(0px 0px 3px white);
+    color: #740707c7;
+    filter: drop-shadow(0px 1px 0px white);
 }
 
 .info{
@@ -120,8 +119,8 @@ h3{
     justify-content: space-around;
     width: 100%;
     height: 100vh;
-    animation: fadeOut 2s forwards;
     animation-timeline: scroll();
+    background: linear-gradient(to bottom, rgb(255 255 255 / 24%), rgb(0 0 0));
 }
 
 
@@ -142,14 +141,14 @@ h3{
 
 .info h1{
     font-family: 'Fuente';
-    filter: drop-shadow(4px 5px 1px black);
+    filter: drop-shadow(2px 4px 0px black);
     font-size: 40px;
     color: #ecf4fd;
 }
 
 .Nosotros p, .info p{
     color: aliceblue;
-    padding: 42px;
+    padding: 35px;
     font-size: 2vw;
     font-family: 'Fuente2';
 }
@@ -175,60 +174,25 @@ h3{
 
 .info, .Nosotros, .Galeria, .Servicios, .Ubicacion{
     margin-bottom: 200px;
-    background: linear-gradient(to bottom, rgb(0 0 0 / 80%), rgb(0 0 0 / 51%)), radial-gradient(circle, #625e5e, transparent);
+    padding-top: 20px;
 }
 
-.imagenes{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+#novedades{
+    background: #313544;
+    filter: drop-shadow(0px 0px 6px white);
+    padding: 20px 0;
+    margin-bottom: 200px;
 }
 
-.card{
-    margin: 0 10px;
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+    max-height: calc(80vh - 80px)!important;
 }
-
-.recuadro1{
-    width: 100px;
-    height: 100px;
-}
-
-.recuadro2{
-    width: 200px;
-    height: 200px;
-}
-
-.recuadro3{
-    width: 300px;
-    height: 300px;
-}
-
-.recuadro4{
-    width: 200px;
-    height: 200px;
-}
-
-.recuadro5{
-    width: 100px;
-    height: 100px;
-}
-
-.Galeria{
-    display: flex;
-    justify-content: center;
-}
-
-.gallery {
-    /*position: relative; /* El contenedor debe ser relativo para que los hijos con posición absoluta se posicionen respecto a él */
-    width: 72vw; /* Ajusta el tamaño del contenedor según sea necesario */
-    height: 360px; /* Ajusta la altura del contenedor según sea necesario */
-    /*border: 2px solid #000; /* Agrega un borde para visualizar el contenedor */
-    /*overflow: hidden; /* Opcional: oculta cualquier parte de los divs que se desborde del contenedor */
-    display: flex; /* Alinea los hijos en una fila */
-    align-items: center; /* Alinea verticalmente los hijos en el centro */
-    filter: drop-shadow(-10px 20px 6px black);
+  
+  /* Tamaño de las miniaturas */
+.image-gallery-thumbnail-image {
+    width: 100px; /* Ajusta según tus necesidades */
+    height: 60px;
+    object-fit: cover;
 }
 
 .fto{
@@ -241,22 +205,13 @@ h3{
     position: static;
     width: 100%;
 }
-  
-@keyframes fadeOut {
-    25% { opacity: 0 }
-    30% { opacity: 0.1 }
-    35% { opacity: 0.2; }
-    45% { opacity: 1; }
-    50% { opacity: 0.2; }
-    60% { opacity: 0; }
-}
 
 .Nosotros{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    animation: fadeOut 2s forwards;
+    filter: sepia(0.2);
     animation-timeline: scroll();
 }
 
@@ -355,16 +310,20 @@ footer p{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    gap: 28vw;
 }
 
 .mostrarDiv button{
-    border: none;
-    background-color: #e74c3c;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
-    width: 10vw;
-    margin:0 30px;
+    width: 9vw;
+    height: 40px;
+    border-color: #ffffff;
+    filter: none;
+}
+
+.mostrarDiv button:hover{
+    background: radial-gradient(#c5d7d9, #13708508);
 }
 
 @keyframes fadeIn {
@@ -385,9 +344,14 @@ footer p{
     z-index: 2;
 }
 
-.informacion_Servicios p{
-    font-family: 'Fuente2';
+.informacion_Servicios p {
+    font-family: math;
     margin: 0 4vw;
+    font-size: 3vh;
+    text-align: center;
+    filter: drop-shadow(0px 1px 1px black);
+    color: #d5e2e2;
+    line-height: 2vw;
 }
 
 .caja_servicios img{
@@ -453,6 +417,21 @@ footer p{
     opacity: 1; /* Mostrar el contenido al hacer hover */
 }
 
+.btn-navegacion {
+    display: inline-block;
+    padding: 9px 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Fuente2_2';
+}
+
+.btn-navegacion:hover {
+    background-color: #0056b3;
+}
 
 
 .Ubicacion{
@@ -475,16 +454,30 @@ footer p{
 iframe{
     border-radius: 20px;
     width: 90%;
-    height: auto;
+    height: 80%;
 }
 
 .caja_servicios h2{
     font-family: 'Fuente2_1';
 }
 
-.Ubicacion h1, .Servicios h1, .Nosotros h1, .navegable_inicio h3, .Reserva h3, .App h2{
+.Ubicacion h1, .Servicios h1, .Nosotros h1{
     font-family: 'Fuente2_2';
     color: rgb(255, 255, 255);
+}
+
+.Reserva h3, .App h2{
+    color: #000000;
+}
+
+.reservas h3{
+    filter: drop-shadow(0px 0px 0px white);
+    font-family: 'Fuente2_2';
+}
+
+.navegable_inicio, .App h2{
+    filter: drop-shadow(0px 1px 0px white);
+    font-family: 'Fuente2_2';
 }
 
 /**************************RESERVAS**************************/
@@ -521,7 +514,7 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 75vh;
+    min-height: 90vh;
 }
 
 label{
@@ -536,15 +529,12 @@ legend{
 }
 
 button{
-    border-radius: 7px;
-    background: #3c57db00;
-    margin-top: 30px;
-    width: 100%;
-    height: 30px;
-    font-family: fantasy;
+    border-radius: 10px;
+    background: #00000000;
     font-size: 2.5vh;
-    font-family: 'Fuente2_2';
-    color: aliceblue;
+    font-family: fantasy;
+    filter: drop-shadow(0px 1px 0px white);
+    font-family: serif;
 }
 
 input{
@@ -558,6 +548,11 @@ input{
 
 .menuObciones{
     display: none;
+}
+
+strong {
+    color: #c12121;
+    filter: drop-shadow(0px 1px 0px white);
 }
 
 .whatsapp-link {
@@ -615,6 +610,9 @@ input{
 }
 
 @media (max-width: 500px) {
+    .navegacion{
+        filter: none;
+    }
     .navegable, .Reserva, .lenguas{
         display: none;
     }
@@ -633,8 +631,9 @@ input{
         position: absolute;
         right: 0;
         top: 7%;
-        background-color: #1c2c4a;
+        background-color: #9b9b9be3;
         border-radius: 3px;
+        height: 100vh;
     }
 
     .whatsapp-link{
@@ -649,15 +648,19 @@ input{
     .menu_ ul{
         list-style: none;
         padding: 13px 8px;
-        text-align: right;
+        text-align: center;
     }
 
     .menu_ li{
-        margin-bottom: 9px;
+        margin: 38% 0px;
     }
 
     .contenedor_imagen{
         height: 100%;
+    }
+
+    .contenido{
+        margin: 0;
     }
 
     .info{
@@ -682,12 +685,39 @@ input{
         height: auto;
     }
 
+    .servicios_ofrecidos{
+        transition: none;
+    }
+
+    .servicios_ofrecidos:hover{
+        transform: none;
+    }
+
     .caja_servicios{
         grid-template-columns: repeat(auto-fill, minmax(28vw, 1fr));
     }
 
     .caja_servicios h2{
-        font-size: 100%;
+        font-size: 80%;
+        filter: drop-shadow(0 1px 0px black);
+    }
+
+    .caja_servicios img{
+        width: 100%;
+        height: 62%;
+    }
+
+    .informacion_Servicios p{
+        line-height: 1;
+        font-size: 2.5vh;
+    }
+
+    .botones{
+        gap: 20vw;
+    }
+
+    .mostrarDiv button{
+        width: 75px;
     }
 
     .mapa{

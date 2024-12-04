@@ -8,12 +8,18 @@ import comida from './imagenes/comida.jpg'
 import traiking from './imagenes/llamaTraking.jpg'
 import hospedaje from './imagenes/hospedaje.jpg'
 import picnic from './imagenes/pago.jpg'
-import AnimatedBox from "./animacionesgaleria.jsx";
+import foto1 from './imagenes/ftocarrusel1.jpg'
+import foto2 from './imagenes/ftocarrusel2.jpg'
+import foto3 from './imagenes/wifala.jpg'
+import foto4 from './imagenes/muestra_teñido.jpg'
+import novedad1 from './imagenes/Anuncios.jpg'
 import Footer from './footer.jsx';
 import Formulario from './form.jsx';
 import {useState, useLayoutEffect} from "react";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from './leguajes.jsx';
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css"
 
 function Header() {
   const { t } = useTranslation();
@@ -61,6 +67,13 @@ function Header() {
             
           </a>
           <a 
+            onClick={(e) => scrollToSection("galeria", e)} // Al hacer clic se hace scroll a la sección de servicios
+            className="navegacion-link"
+            href="#"
+          >
+            <h3>{t("Galeria")}</h3>
+          </a>
+          <a 
             onClick={(e) => scrollToSection("nosotros", e)} // Al hacer clic se hace scroll a la sección de servicios
             className="navegacion-link"
             href="#"
@@ -103,6 +116,7 @@ function Header() {
             >
               {t("HOME")}
             </Link> </a></li>
+          <li><a onClick={() => scrollToSection("galeria")} href="#"> {t("Galeria")}</a></li>
           <li><a onClick={() => scrollToSection("nosotros")} href="#"> {t("Nosotros")}</a></li>
           <li><a onClick={() => scrollToSection("Servicios")} href="#"> {t("SERVICE")}</a></li>
           <li><a onClick={() => scrollToSection("Ubicacion")} href="#"> {t("LOCATION")}</a></li>
@@ -124,6 +138,32 @@ function Inicio(){
   const [isHovered3, setIsHovered3]=useState(false);
   const [isHovered4, setIsHovered4]=useState(false);
   const [isHovered5, setIsHovered5]=useState(false);
+
+  const novedades=[
+    {
+      original: novedad1,
+      thumbnail: novedad1,
+    }
+  ]
+
+  const images = [
+    {
+      original: foto2,
+      thumbnail: foto2,
+    },
+    {
+      original: foto1,
+      thumbnail: foto1,
+    },
+    {
+      original: foto3,
+      thumbnail: foto3,
+    },
+    {
+      original: foto4,
+      thumbnail: foto4,
+    },
+  ];
 
   const[isOpen, setIsOpen] = useState({
     1:false,
@@ -176,8 +216,12 @@ function Inicio(){
       </section>
     </div>
 
-    <section className="Galeria">
-      <AnimatedBox />
+    <section className="Novedades" id="novedades">
+      <ImageGallery items={novedades} showThumbnails={false} showPlayButton={false}/>
+    </section>
+
+    <section className="Galeria" id="galeria">
+      <ImageGallery items={images} lazyLoad={true} showThumbnails={false} showPlayButton={false} showFullscreenButton={false} autoPlay={true} slideInterval={5000}/>;
     </section>
     
     <section className="Nosotros" id="nosotros">
@@ -286,9 +330,9 @@ function Inicio(){
         {isOpen[1] &&(
           <div className="mostrarDiv" >
             <p>{t("Ofrecemos.tex_descripcion")}</p>
-            <div>
+            <div className="botones">
               <button onClick={()=>abrirContenido(1)}>{t("Cerrar")}</button>
-              <button onClick={()=> window.location.href='/reservas'}>{t("RESERVATION")}</button>
+              <button onClick={()=> window.location.href='/Casa_Chullo/reservas'}>{t("RESERVATION")}</button>
             </div>
           </div>
         )}
@@ -296,9 +340,9 @@ function Inicio(){
         {isOpen[2] &&(
           <div className="mostrarDiv">
             <p>{t("Ofrecemos.coci_descripcion")}</p>
-            <div>
+            <div className="botones">
               <button onClick={()=>abrirContenido(2)}>{t("Cerrar")}</button>
-              <button onClick={()=> window.location.href='/reservas'}>{t("RESERVATION")}</button>
+              <button onClick={()=> window.location.href='/Casa_Chullo/reservas'}>{t("RESERVATION")}</button>
             </div>
           </div>
         )}
@@ -310,9 +354,9 @@ function Inicio(){
               <br/> <br/>
               {t("Ofrecemos.llama_descripcion2")}
             </p>
-            <div>
+            <div className="botones">
               <button onClick={()=>abrirContenido(3)}>{t("Cerrar")}</button>
-              <button onClick={()=> window.location.href='/reservas'}>{t("RESERVATION")}</button>
+              <button onClick={()=> window.location.href='/Casa_Chullo/reservas'}>{t("RESERVATION")}</button>
             </div>
           </div>
         )} 
@@ -320,9 +364,9 @@ function Inicio(){
         {isOpen[4]&&(
           <div className="mostrarDiv">
             <p>{t("Ofrecemos.hosp_descripcion")}</p> 
-            <div>
+            <div className="botones">
               <button onClick={()=>abrirContenido(4)}>{t("Cerrar")}</button>
-              <button onClick={()=> window.location.href='/reservas'}>{t("RESERVATION")}</button>
+              <button onClick={()=> window.location.href='/Casa_Chullo/reservas'}>{t("RESERVATION")}</button>
             </div>
           </div>
         )}  
@@ -332,7 +376,7 @@ function Inicio(){
             <p>{t("Ofrecemos.pago_descripcion")}</p> 
             <div className="botones">
               <button onClick={()=>abrirContenido(5)}>{t("Cerrar")}</button>
-              <button onClick={()=> window.location.href='/reservas'}>{t("RESERVATION")}</button>
+              <button onClick={()=> window.location.href='/Casa_Chullo/reservas'}>{t("RESERVATION")}</button>
             </div>
           </div>
         )}       
@@ -369,7 +413,7 @@ function Reservas(){
 
 export function App() {
   return (
-    <Router basename="/Casa_Chullo">
+    <Router basename="/Casa_Chullo/">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Inicio />} />
