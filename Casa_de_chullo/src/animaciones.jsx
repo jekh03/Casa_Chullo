@@ -1,60 +1,87 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import yourImage from './imagenes/Anuncios.jpg'; // Importa tu imagen
 
-//--> Dibujar y animar cuadrilateros
-const MIN_DISTANCE = 10; // Distancia mínima en vw entre cuadriláteros
+const InteractiveImage = () => {
+  const [isOpen, setIsOpen] = useState(false); // Estado para controlar la visibilidad de la imagen ampliada
+  const [isRotating, setIsRotating] = useState(true); // Estado para controlar si la imagen debe rotar
+  const imageRef = useRef(null);
+  let currentX = 0;
+  let currentY = 0;
+  let targetX = 0;
+  let targetY = 0;
 
-const getRandomPositionAndSize = () => {
-  const x = Math.random() * (100 - 15); // Ajustar para que no salga del viewport
-  const y = Math.random() * (100 - 15); // Ajustar para que no salga del viewport
-  const size = Math.random() * 10 + 5; // Tamaño aleatorio entre 5vw y 15vw
-  return { x, y, size };
-};
+  // Función para animación suave de la rotación
+  const updateAnimation = () => {
+    if (isRotating) {
+      currentX += (targetX - currentX) * 0.1; // Interpolación suave
+      currentY += (targetY - currentY) * 0.1;
 
-const distance = (pos1, pos2) => {
-  const dx = pos1.x - pos2.x;
-  const dy = pos1.y - pos2.y;
-  return Math.sqrt(dx * dx + dy * dy);
-};
+      if (imageRef.current) {
+        imageRef.current.style.transform = `perspective(1000px) rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+      }
+    }
+    requestAnimationFrame(updateAnimation);
+  };
 
-const isValidPosition = (position, positions) => {
-  return positions.every(pos => distance(position, pos) > MIN_DISTANCE);
-};
+  // Función para manejar el movimiento del ratón sobre la imagen
+  const handleMouseMove = (e) => {
+    if (isOpen) return; // No hacer nada si la imagen está agrandada
 
-const RotatingSquares = () => {
-  const [positions, setPositions] = useState([]);
+    const image = imageRef.current;
+    if (!image) return;
+
+    const rect = image.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    targetX = ((x - centerX) / centerX) * 15;
+    targetY = ((y - centerY) / centerY) * -15;
+  };
+
+  // Función para manejar el ratón cuando sale de la imagen
+  const handleMouseLeave = () => {
+    targetX = 0;
+    targetY = 0;
+  };
+
+  // Función para manejar el clic en la imagen
+  const handleClick = () => {
+    setIsOpen(!isOpen); // Cambia el estado de isOpen al hacer clic
+    setIsRotating(false); // Detiene la rotación cuando la imagen está agrandada
+
+    // Si la imagen está volviendo a su tamaño original, activa la rotación de nuevo
+    if (isOpen) {
+      setTimeout(() => {
+        setIsRotating(true);
+      }, 300); // Espera a que la animación de cambio de tamaño termine
+    }
+  };
 
   useEffect(() => {
-    const generatePositions = () => {
-      const newPositions = [];
-      while (newPositions.length < 10) {
-        const newPosition = getRandomPositionAndSize();
-        if (isValidPosition(newPosition, newPositions)) {
-          newPositions.push(newPosition);
-        }
-      }
-      setPositions(newPositions);
-    };
+    updateAnimation(); // Inicia la animación
+  }, [isRotating]); // Dependencia para reiniciar la animación cuando cambia el estado de rotación
 
-    generatePositions();
-  }, []);
+  // Definimos un estilo condicional para la rotación
+  const imageStyle = isOpen
+    ? { transform: 'none' } // Elimina la rotación cuando está agrandada
+    : { transform: `perspective(1000px) rotateX(${currentY}deg) rotateY(${currentX}deg)` }; // Rotación normal
 
   return (
-    <>
-      {positions.map((position, index) => (
-        <div
-          key={index}
-          className="cuadrado"
-          style={{
-            top: `${position.y}vh`, 
-            left: `${position.x}vw`, 
-            width: `${position.size}vw`, 
-            height: `${position.size}vw`, 
-            transform: `rotate(${30 * index}deg)`, // Rotación inicial diferente para cada cuadrilátero
-          }}
-        />
-      ))}
-    </>
+    <div
+      className={`image-container ${isOpen ? 'opened' : ''}`} // Cambia de clase cuando la imagen está abierta
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img
+        ref={imageRef}
+        src={yourImage}
+        alt="Interactive"
+        className={`interactive-image ${isOpen ? 'open' : ''}`} // Clase dinámica
+        onClick={handleClick} // Añade el evento de clic
+        style={imageStyle} // Aplica el estilo condicional
+      />
+    </div>
   );
 };
-
-export default RotatingSquares;
+export default InteractiveImage;

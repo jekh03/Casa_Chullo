@@ -40,24 +40,11 @@ body{
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, rgb(247 247 247 / 0%) 70%, rgb(49 46 46)), url(/Casa_Chullo/src/imagenes/fondo.jpg);
+    background-image: linear-gradient(to bottom, rgb(247 247 247 / 0%) 70%, rgb(49 46 46)), url('./imagenes/fondo.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
-
-.texto h1{
-    font-size: 5rem;
-    font-weight: bold;
-    color: transparent;
-    background: url("./videos/f4bf7caac57bccaf889738ff8e9560a2.webm") no-repeat center center;
-    background-size: cover;
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-}
-
 
 .navegacion h1{
     font-size: 1vw; /*20px*/
@@ -155,18 +142,12 @@ h3{
 
 .contenedor_imagen{
     display: flex;
-    height: auto; /* Alto de la imagen */
+    height: auto;
     justify-content: center;
     align-items: center;
-    /*overflow: hidden; /* Oculta la parte que sobresale */
 }
 
 .contenedor_imagen img{
-    /*
-    filter: drop-shadow(0 0 10px rgb(0, 0, 0, .8));
-    -webkit-mask-image: linear-gradient(black 30%,transparent);
-    mask-image: linear-gradient(black 30%,transparent);
-    */
     filter: drop-shadow(0 0 3px white);
     max-width: 60%;
     height: auto;
@@ -177,11 +158,15 @@ h3{
     padding-top: 20px;
 }
 
+#galeria{
+    padding: 16vh 0;
+}
+
 #novedades{
-    background: #313544;
-    filter: drop-shadow(0px 0px 6px white);
     padding: 20px 0;
     margin-bottom: 200px;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
 }
 
 .image-gallery-content .image-gallery-slide .image-gallery-image {
@@ -193,6 +178,38 @@ h3{
     width: 100px; /* Ajusta según tus necesidades */
     height: 60px;
     object-fit: cover;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Altura de la pantalla completa */
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0px 0px 10px white);
+}
+
+.interactive-image {
+    width: 50%; /* 50% del ancho de la pantalla */
+    height: auto; /* 50% de la altura de la pantalla */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, width 0.3s ease, height 0.3s ease;
+    object-fit: cover; /* Ajusta el contenido para llenar el espacio sin deformarse */
+    cursor: pointer;
+}
+
+.interactive-image.open {
+    width: 80%; /* Aumenta el tamaño de la imagen */
+    height: auto;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.opened {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fto{
@@ -273,7 +290,7 @@ footer p{
     display: grid;
     gap: 10px;
     justify-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(19vw,1fr));
     width: 100%;
     /*align-items: center;*/
 }
@@ -468,10 +485,10 @@ iframe{
 
 .Reserva h3, .App h2{
     color: #000000;
+    filter: drop-shadow(0px 1px 0px rgb(195, 196, 196));
 }
 
 .reservas h3{
-    filter: drop-shadow(0px 0px 0px white);
     font-family: 'Fuente2_2';
 }
 
