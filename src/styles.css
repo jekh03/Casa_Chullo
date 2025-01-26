@@ -29,7 +29,7 @@ html{
 }
 
 body{
-    background: linear-gradient(to bottom, rgb(0 0 0), rgb(0 0 0 / 67%)), radial-gradient(circle, #979797, #000000);
+    background: #e9eff5;
     /*overflow-x: hidden;*/
     margin: 0;
     /*padding:0 25px ;*/
@@ -40,30 +40,10 @@ body{
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, rgb(247 247 247 / 0%) 70%, rgb(49 46 46)), url(/Casa_Chullo/src/imagenes/fondo.jpg);
+    background-image: linear-gradient(to bottom, rgb(247 247 247 / 0%) 70%, rgb(49 46 46)), url('./imagenes/fondo.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-}
-
-.texto h1{
-    font-size: 5rem;
-    font-weight: bold;
-    color: transparent;
-    background: url("./videos/f4bf7caac57bccaf889738ff8e9560a2.webm") no-repeat center center;
-    background-size: cover;
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-}
-
-
-.navegacion h1{
-    font-size: 1vw; /*20px*/
-    font-family: 'Fuentetitulo', sans-serif;
-    margin: 0 10px;
-    filter: drop-shadow(0px 1px 0px white);
 }
 
 .lenguas{
@@ -82,15 +62,19 @@ body{
 }
 
 .navegacion{
+    position: sticky;
+    z-index: 2;
+    top: 0;
+}
+
+.navegacion_adsolute{
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: black;
     width: 100%;
-    position: sticky;
+    position: absolute;
     background-color: #eeeeef54;
-    z-index: 2;
-    top: 0;
     filter: drop-shadow(1px 1px 15px white)
 }
 
@@ -114,13 +98,13 @@ h3{
 
 .info{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     width: 100%;
     height: 100vh;
     animation-timeline: scroll();
-    background: linear-gradient(to bottom, rgb(255 255 255 / 24%), rgb(0 0 0));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0 0 0));
 }
 
 
@@ -142,31 +126,36 @@ h3{
 .info h1{
     font-family: 'Fuente';
     filter: drop-shadow(2px 4px 0px black);
-    font-size: 40px;
+    font-size: 5rem;
     color: #ecf4fd;
+    text-align: center;
+    letter-spacing: 1.5vw;
 }
 
 .Nosotros p, .info p{
-    color: aliceblue;
     padding: 35px;
     font-size: 2vw;
     font-family: 'Fuente2';
+    filter: drop-shadow(0px 0px 0px black);
+}
+
+.info p{
+    color: #d9d9d9;
+    filter: drop-shadow(0px 0px 0px white);
+}
+
+.Nosotros p{
+    color: #515151;
 }
 
 .contenedor_imagen{
     display: flex;
-    height: auto; /* Alto de la imagen */
+    height: auto;
     justify-content: center;
     align-items: center;
-    /*overflow: hidden; /* Oculta la parte que sobresale */
 }
 
 .contenedor_imagen img{
-    /*
-    filter: drop-shadow(0 0 10px rgb(0, 0, 0, .8));
-    -webkit-mask-image: linear-gradient(black 30%,transparent);
-    mask-image: linear-gradient(black 30%,transparent);
-    */
     filter: drop-shadow(0 0 3px white);
     max-width: 60%;
     height: auto;
@@ -177,15 +166,21 @@ h3{
     padding-top: 20px;
 }
 
+#galeria{
+    padding: 8vh 0;
+    filter: drop-shadow(2px 0px 1px black);
+    border: 2px solid #7b7575;
+}
+
 #novedades{
-    background: #313544;
-    filter: drop-shadow(0px 0px 6px white);
     padding: 20px 0;
     margin-bottom: 200px;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
 }
 
 .image-gallery-content .image-gallery-slide .image-gallery-image {
-    max-height: calc(80vh - 80px)!important;
+    max-height: calc(100vh - 80px)!important;
 }
   
   /* Tamaño de las miniaturas */
@@ -193,6 +188,38 @@ h3{
     width: 100px; /* Ajusta según tus necesidades */
     height: 60px;
     object-fit: cover;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Altura de la pantalla completa */
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0px 0px 10px white);
+}
+
+.interactive-image {
+    width: 50%; /* 50% del ancho de la pantalla */
+    height: auto; /* 50% de la altura de la pantalla */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, width 0.3s ease, height 0.3s ease;
+    object-fit: cover; /* Ajusta el contenido para llenar el espacio sin deformarse */
+    cursor: pointer;
+}
+
+.interactive-image.open {
+    width: 80%; /* Aumenta el tamaño de la imagen */
+    height: auto;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.opened {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fto{
@@ -273,9 +300,9 @@ footer p{
     display: grid;
     gap: 10px;
     justify-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(19vw,1fr));
     width: 100%;
-    /*align-items: center;*/
+    align-items: center;
 }
 
 .contenido{
@@ -289,7 +316,7 @@ footer p{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 80%;
     height: 60%;
     z-index: 10;
     display: flex;
@@ -349,9 +376,11 @@ footer p{
     margin: 0 4vw;
     font-size: 3vh;
     text-align: center;
-    filter: drop-shadow(0px 1px 1px black);
-    color: #d5e2e2;
+    filter: drop-shadow(0px 0px 1px black);
+    color: #c6d9dd;
     line-height: 2vw;
+    letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .caja_servicios img{
@@ -361,9 +390,10 @@ footer p{
 }
 
 .servicios_ofrecidos{
+    border: 6px double #2e7f7f;
     position: relative; /*falta corregir*/
     width:80%;
-    margin-right: 22px;
+    /*margin-right: 22px;*/
     margin-top: 22px;
     /*background-color: #c9b7b7a3;*/
     border-radius: 10px;
@@ -449,6 +479,7 @@ footer p{
     justify-content: center;
     background-color: #bbbbbb24;
     border-radius: 20px;
+    border: 1px solid #930000;
 }
 
 iframe{
@@ -463,15 +494,18 @@ iframe{
 
 .Ubicacion h1, .Servicios h1, .Nosotros h1{
     font-family: 'Fuente2_2';
-    color: rgb(255, 255, 255);
+    color: black;
+    filter: drop-shadow(1px 1px 1px black);
+    letter-spacing: 1vw;
+    font-size: 4vw;
 }
 
 .Reserva h3, .App h2{
     color: #000000;
+    filter: drop-shadow(0px 1px 0px rgb(195, 196, 196));
 }
 
 .reservas h3{
-    filter: drop-shadow(0px 0px 0px white);
     font-family: 'Fuente2_2';
 }
 
@@ -617,10 +651,6 @@ strong {
         display: none;
     }
 
-    .navegacion h1{
-        font-size: 4vw;
-    }
-
     .menuObciones{
         display: block;
         z-index: 1;
@@ -663,10 +693,23 @@ strong {
         margin: 0;
     }
 
+    .info, .Nosotros, .Galeria, .Servicios, .Ubicacion {
+        margin-bottom: 0;
+        padding-top: 0;
+    }
+
     .info{
         display: flex;
         /*flex-direction: column-reverse;*/
         justify-content: space-around;
+    }
+
+    #novedades{
+        margin-bottom: 0;
+    }
+
+    .image-container{
+        height: 50vh;
     }
 
     .Nosotros{
@@ -682,7 +725,7 @@ strong {
     }
 
     .Servicios {
-        height: auto;
+        height: 100vh;
     }
 
     .servicios_ofrecidos{
@@ -699,7 +742,8 @@ strong {
 
     .caja_servicios h2{
         font-size: 80%;
-        filter: drop-shadow(0 1px 0px black);
+        filter: drop-shadow(0px 0px 0px black);
+        color: #4b4949;
     }
 
     .caja_servicios img{
@@ -709,7 +753,8 @@ strong {
 
     .informacion_Servicios p{
         line-height: 1;
-        font-size: 2.5vh;
+        font-size: 14px;
+        letter-spacing: 2px;
     }
 
     .botones{

@@ -6,13 +6,17 @@ import puma from './imagenes/puma.png'
 import tejido from './imagenes/artesania.jpg'
 import comida from './imagenes/comida.jpg'
 import traiking from './imagenes/llamaTraking.jpg'
-import hospedaje from './imagenes/hospedaje.jpg'
 import picnic from './imagenes/pago.jpg'
 import foto1 from './imagenes/ftocarrusel1.jpg'
 import foto2 from './imagenes/ftocarrusel2.jpg'
 import foto3 from './imagenes/wifala.jpg'
 import foto4 from './imagenes/muestra_teñido.jpg'
-import novedad1 from './imagenes/Anuncios.jpg'
+import foto5 from './imagenes/traickingllama.png'
+import foto6 from './imagenes/artesania2.jpg'
+import foto7 from './imagenes/artesania3.jpg'
+import foto8 from './imagenes/teñido.jpg'
+import foto9 from './imagenes/cosecha.jpg'
+import foto10 from './imagenes/pan.jpg'
 import Footer from './footer.jsx';
 import Formulario from './form.jsx';
 import {useState, useLayoutEffect} from "react";
@@ -20,6 +24,7 @@ import { useTranslation } from "react-i18next";
 import LanguageToggle from './leguajes.jsx';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css"
+import InteractiveImage from "./animaciones.jsx";
 
 function Header() {
   const { t } = useTranslation();
@@ -44,88 +49,99 @@ function Header() {
 
   return (
     <section className="navegacion">
-      <h1>TEXTILERIA</h1>
-      <section className="navegable">
-        <div className="navegable_inicio">
-          <a
-             
-            onClick={(e) => {
-              if (e.target.href) {
-                // Si el enlace tiene un href, no prevengas el comportamiento por defecto (navegar a otra página)
-                return;
-              }
-              scrollToSection("Inicio", e);  // Al hacer clic se hace scroll a la sección de Inicio
-            }} 
-            className="navegacion-link" 
-            href="#"
-          >
-            <Link 
-              to="/" 
+      <div className="navegacion_adsolute">
+        <h1></h1>
+        <section className="navegable">
+          <div className="navegable_inicio">
+            <a
+              
+              onClick={(e) => {
+                if (e.target.href) {
+                  // Si el enlace tiene un href, no prevengas el comportamiento por defecto (navegar a otra página)
+                  return;
+                }
+                scrollToSection("Inicio", e);  // Al hacer clic se hace scroll a la sección de Inicio
+              }} 
+              className="navegacion-link" 
+              href="#"
             >
-              <h3>{t("HOME")}</h3>
-            </Link> 
+              <Link 
+                to="/" 
+              >
+                <h3>{t("HOME")}</h3>
+              </Link> 
+              
+            </a>
+
+            <a 
+              onClick={(e) => scrollToSection("novedades", e)} // Al hacer clic se hace scroll a la sección de servicios
+              className="navegacion-link"
+              href="#"
+            >
+              <h3>{t("Novedades")}</h3>
+            </a>
             
-          </a>
-          <a 
-            onClick={(e) => scrollToSection("galeria", e)} // Al hacer clic se hace scroll a la sección de servicios
-            className="navegacion-link"
-            href="#"
-          >
-            <h3>{t("Galeria")}</h3>
-          </a>
-          <a 
-            onClick={(e) => scrollToSection("nosotros", e)} // Al hacer clic se hace scroll a la sección de servicios
-            className="navegacion-link"
-            href="#"
-          >
-            <h3>{t("Nosotros")}</h3>
-          </a>
-          <a 
-            onClick={(e) => scrollToSection("Servicios", e)} // Al hacer clic se hace scroll a la sección de servicios
-            className="navegacion-link"
-            href="#"
-          >
-            <h3>{t("SERVICE")}</h3>
-          </a>
-          
-          <a 
-            onClick={(e) => scrollToSection("Ubicacion", e)} // Al hacer clic se hace scroll a la sección de ubicación
-            className="navegacion-link"
-            href="#"
-          >
-            <h3>{t("LOCATION")}</h3>
-          </a>
-        </div>
-      </section>
-      <div className="Reserva">
-        <Link 
-          to="/reservas" 
-          className="navegacion-link"
-        >
-          <h3>{t("RESERVATION")}</h3>
-        </Link>  
-      </div>
-      <div className="menuObciones" onClick={menu}>☰ Menú</div>
-      <div 
-        className="menu_"
-        style={{ display: stadoMenu ? 'block' : 'none' }}
-      >
-        <ul>
-          <li><a onClick={() => scrollToSection("Inicio")} href="#"> <Link 
-              to="/" 
+            <a 
+              onClick={(e) => scrollToSection("galeria", e)} // Al hacer clic se hace scroll a la sección de servicios
+              className="navegacion-link"
+              href="#"
             >
-              {t("HOME")}
-            </Link> </a></li>
-          <li><a onClick={() => scrollToSection("galeria")} href="#"> {t("Galeria")}</a></li>
-          <li><a onClick={() => scrollToSection("nosotros")} href="#"> {t("Nosotros")}</a></li>
-          <li><a onClick={() => scrollToSection("Servicios")} href="#"> {t("SERVICE")}</a></li>
-          <li><a onClick={() => scrollToSection("Ubicacion")} href="#"> {t("LOCATION")}</a></li>
-          <li><Link to="/reservas">{t("RESERVATION")}</Link></li>
-          <li><LanguageToggle></LanguageToggle></li>
-        </ul>
-      </div>
-      <div className="lenguas">
-        <LanguageToggle></LanguageToggle>
+              <h3>{t("Galeria")}</h3>
+            </a>
+            <a 
+              onClick={(e) => scrollToSection("nosotros", e)} // Al hacer clic se hace scroll a la sección de servicios
+              className="navegacion-link"
+              href="#"
+            >
+              <h3>{t("Nosotros")}</h3>
+            </a>
+            <a 
+              onClick={(e) => scrollToSection("Servicios", e)} // Al hacer clic se hace scroll a la sección de servicios
+              className="navegacion-link"
+              href="#"
+            >
+              <h3>{t("SERVICE")}</h3>
+            </a>
+            
+            <a 
+              onClick={(e) => scrollToSection("Ubicacion", e)} // Al hacer clic se hace scroll a la sección de ubicación
+              className="navegacion-link"
+              href="#"
+            >
+              <h3>{t("LOCATION")}</h3>
+            </a>
+          </div>
+        </section>
+        <div className="Reserva">
+          <Link 
+            to="/reservas" 
+            className="navegacion-link"
+          >
+            <h3>{t("RESERVATION")}</h3>
+          </Link>  
+        </div>
+        <div className="menuObciones" onClick={menu}>☰ Menú</div>
+        <div 
+          className="menu_"
+          style={{ display: stadoMenu ? 'block' : 'none' }}
+        >
+          <ul>
+            <li><a onClick={() => scrollToSection("Inicio")} href="#"> <Link 
+                to="/" 
+              >
+                {t("HOME")}
+              </Link> </a></li>
+            <li><a onClick={() => scrollToSection("galeria")} href="#"> {t("Galeria")}</a></li>
+            <li><a onClick={() => scrollToSection("nosotros")} href="#"> {t("Nosotros")}</a></li>
+            <li><a onClick={() => scrollToSection("Servicios")} href="#"> {t("SERVICE")}</a></li>
+            <li><a onClick={() => scrollToSection("Ubicacion")} href="#"> {t("LOCATION")}</a></li>
+            <li><Link to="/reservas">{t("RESERVATION")}</Link></li>
+            <li><LanguageToggle></LanguageToggle></li>
+          </ul>
+        </div>
+        <div className="lenguas">
+          <LanguageToggle></LanguageToggle>
+        </div>
       </div>
     </section>
   );
@@ -137,14 +153,6 @@ function Inicio(){
   const [isHovered2, setIsHovered2]=useState(false);
   const [isHovered3, setIsHovered3]=useState(false);
   const [isHovered4, setIsHovered4]=useState(false);
-  const [isHovered5, setIsHovered5]=useState(false);
-
-  const novedades=[
-    {
-      original: novedad1,
-      thumbnail: novedad1,
-    }
-  ]
 
   const images = [
     {
@@ -163,6 +171,30 @@ function Inicio(){
       original: foto4,
       thumbnail: foto4,
     },
+    {
+      original: foto5,
+      thumbnail: foto5,
+    },
+    {
+      original: foto6,
+      thumbnail: foto6,
+    },
+    {
+      original: foto7,
+      thumbnail: foto7,
+    },
+    {
+      original: foto8,
+      thumbnail: foto8,
+    },
+    {
+      original: foto9,
+      thumbnail: foto9,
+    },
+    {
+      original: foto10,
+      thumbnail: foto10,
+    },
   ];
 
   const[isOpen, setIsOpen] = useState({
@@ -170,7 +202,6 @@ function Inicio(){
     2:false,
     3:false,
     4:false,
-    5:false,
   });
   
   const abrirContenido = (index) =>{
@@ -207,17 +238,14 @@ function Inicio(){
     <div className="background">
       <section id="Inicio" className="Inicio">
         <section className="info" id="info">
+          <h1>TUKUY YANAPAQ</h1>
           <p>{t("Inicio.TextInicio")} <strong>{t("Inicio.TextInicioFuerte")}</strong></p>
-          <h1>LA CASA DEL CHULLO</h1>
-          <div className="contenedor_imagen">
-            <img src={llamadaPortada}/>
-          </div>
         </section>
       </section>
     </div>
 
     <section className="Novedades" id="novedades">
-      <ImageGallery items={novedades} showThumbnails={false} showPlayButton={false}/>
+      <InteractiveImage></InteractiveImage>
     </section>
 
     <section className="Galeria" id="galeria">
@@ -294,29 +322,15 @@ function Inicio(){
           </div>
         </div>
         
-        <div className="Hospedaje servicios_ofrecidos"
+        
+
+        <div className="Picnic servicios_ofrecidos"
           onMouseEnter={()=>setIsHovered4(true)}
           onMouseLeave={()=>setIsHovered4(false)}
           onClick={()=> abrirContenido(4)}
         >
-          <img src={hospedaje} alt="img1"
-            style={{transform: isHovered4? 'scale(1.3)':'scale(1)',
-              transition: 'transform 0.1s ease',
-            }}
-          />
-          
-          <div className="contenido" >
-            <h2>{t("Ofrecemos.Hospedaje")}</h2>
-          </div>
-        </div>
-
-        <div className="Picnic servicios_ofrecidos"
-          onMouseEnter={()=>setIsHovered5(true)}
-          onMouseLeave={()=>setIsHovered5(false)}
-          onClick={()=> abrirContenido(5)}
-        >
           <img src={picnic} alt="img1"
-            style={{transform: isHovered5? 'scale(1.3)':'scale(1)',
+            style={{transform: isHovered4? 'scale(1.3)':'scale(1)',
               transition: 'transform 0.1s ease',
             }}
           />
@@ -361,21 +375,12 @@ function Inicio(){
           </div>
         )} 
 
+      
         {isOpen[4]&&(
-          <div className="mostrarDiv">
-            <p>{t("Ofrecemos.hosp_descripcion")}</p> 
-            <div className="botones">
-              <button onClick={()=>abrirContenido(4)}>{t("Cerrar")}</button>
-              <button onClick={()=> window.location.href='/Casa_Chullo/reservas'}>{t("RESERVATION")}</button>
-            </div>
-          </div>
-        )}  
-
-        {isOpen[5]&&(
           <div className="mostrarDiv">
             <p>{t("Ofrecemos.pago_descripcion")}</p> 
             <div className="botones">
-              <button onClick={()=>abrirContenido(5)}>{t("Cerrar")}</button>
+              <button onClick={()=>abrirContenido(4)}>{t("Cerrar")}</button>
               <button onClick={()=> window.location.href='/Casa_Chullo/reservas'}>{t("RESERVATION")}</button>
             </div>
           </div>
