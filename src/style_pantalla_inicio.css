@@ -1,0 +1,37 @@
+.splash-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #121212;
+  color: #b9932c;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.splash-content {
+  text-align: center;
+  transform: scale(0);
+  animation: zoomIn 1s ease forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    transform: scale(1);
+  }
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.brand-name {
+  font-size: 3rem;
+  font-weight: bold;
+}

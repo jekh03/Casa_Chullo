@@ -1,0 +1,106 @@
+.infografia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /*background: linear-gradient(to bottom, #4e0407, #7c0b0f);*/
+    background: #e5e5e5;
+    padding: 2rem 0;
+    gap: 2rem;
+}
+
+.seccion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1.5rem;
+}
+
+.imagen_referencia img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.imagen_referencia, .descripcion_imagen {
+    flex: 1 1 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.descripcion_imagen h1 {
+    font-size: 1.5rem;
+    color: #a64b2a;
+    margin-bottom: 0.5rem;
+}
+
+.descripcion_imagen p {
+    font-size: 1rem;
+    color: #b1acac;
+    padding: 0 1rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .seccion {
+        flex-direction: column;
+    }
+}
+
+.hover-cambio {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .hover-cambio img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+  }
+  
+  .img-animada {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* evita que la imagen animada interfiera con el hover */
+  }
+  
+  .hover-cambio:hover .img-animada {
+    opacity: 1;
+  }
+  
+  .hover-cambio:hover .img-estatica {
+    opacity: 0;
+  }
+
+  .img-animada {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto hace que el video se recorte en lugar de deformarse */
+    border-radius: 1rem; /* Si quieres que siga siendo circular como las imágenes */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .imagen_referencia {
+    position: relative;
+    width: 50%;
+    height: 100%;
+  }

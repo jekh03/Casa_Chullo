@@ -1,6 +1,6 @@
 {
-  "homepage": "https://jekh03.github.io/Casa_Chullo/",
-  "name": "casa-de-chullo",
+  "homepage": "https://tukuy-yanapaq.web.app",
+  "name": "tukuy-yanapaq",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -15,11 +15,17 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "@lyracom/embedded-form-glue": "^1.4.2",
     "@react-spring/web": "^9.7.4",
+    "axios": "^1.9.0",
+    "firebase": "^11.2.0",
+    "framer-motion": "^12.9.2",
+    "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.2",
     "react-i18next": "^15.0.1",
+    "react-icons": "^5.5.0",
     "react-image-gallery": "^1.3.0",
     "react-router-dom": "^6.26.0"
   },

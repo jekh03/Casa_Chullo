@@ -1,0 +1,142 @@
+/* Contenedor principal */
+.izipay-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eaeaea;
+  }
+  
+  /* Encabezado */
+  .izipay-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .izipay-header h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .payment-cards {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1rem;
+  }
+  
+  .payment-cards img {
+    height: 30px;
+    filter: grayscale(30%);
+    transition: all 0.3s ease;
+  }
+  
+  .payment-cards img:hover {
+    filter: grayscale(0%);
+  }
+  
+  /* Formulario */
+  .izipay-form-container {
+    margin: 2rem 0;
+  }
+  
+  /* Badge de seguridad */
+  .izipay-security {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .security-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+  }
+  
+  .security-badge svg {
+    flex-shrink: 0;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .izipay-container {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  }
+
+/******************/
+/*Estili para el iframe de la tarjeta*/
+.kr-embedded {
+  background-color: #fff !important;
+  border-radius: 6px;
+  border: 1px solid #b3b6b5 !important;
+  margin-top: 58px !important;
+  box-shadow: 0px 10px 25px rgba(92, 99, 105, .2);
+  padding: 20px !important;
+  width: 100%!important;
+  max-width: 300px!important;
+}  
+
+/*** Número de tarjeta ***/
+.kr-pan{
+  margin-top: 14px !important;
+  height: 45px !important;
+  border-radius: 4px !important;
+}
+
+
+.kr-expiry{
+  height: 45px !important;
+  border-radius: 4px !important;
+  max-width: 49% !important;
+}
+
+.kr-security-code{
+  height: 45px !important;
+  border-radius: 4px !important;
+  max-width: 49% !important;
+}
+
+.kr-installment-number{
+  border-radius: 4px !important;
+  height: 45px !important;
+}
+
+.kr-first-installment-delay{
+  border-radius: 4px !important;
+  height: 45px !important;
+}
+
+.kr-embedded .kr-payment-button {
+  color: #ffffff !important;
+  background-color: #00A09D !important;
+  border-radius: 4px !important;
+  height:55px !important;
+  margin-bottom: 0px !important;
+}
+
+.kr-embedded .kr-payment-button span:hover{
+  transition-duration: 0.2s;
+  font-size: large;
+  text-shadow: -0.5px -0.5px 0.5px #000, 0.5px 0.5px 0.5px #000, -0.5px 0.5px 0.5px #000, 0.5px -0.5px 0.5px #000;
+}
+
+.kr-embedded .kr-payment-button:hover {
+  background-color: #3DD2CE !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

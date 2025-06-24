@@ -4,6 +4,8 @@
     "SERVICE": "Servicios",
     "LOCATION": "Uvicación",
     "RESERVATION": "Reservar",
+    "RESERVA_AHORA": "RESERVA AHORA",
+    "DESCRIPCION_RESERVA": "Contáctanos por WhatsApp para programar tu visita y vivir una experiencia única",
     "Galeria": "Galeria",
     "Novedades": "Novedades",
 
@@ -13,17 +15,17 @@
     "Enviar":"Enviar",
 
     "Inicio":{
-        "TextInicio": "Descubre el arte ancestral del teñido y tejido, explora nuestras exquisitas prendas de lana de alpaca, y disfruta de la auténtica cocina local.",
-        "TextInicioFuerte": "¡Sumérgete en una experiencia cultural única y cálida!"
+        "TextInicio": "Adéntrate en el corazón de los Andes y descubre las tradiciones ancestrales del teñido, tejido, cocina local y más. Vive una experiencia única que conecta historia, arte y naturaleza",
+        "TextInicioFuerte": "¡Vive una experiencia auténtica en el corazón de los Andes!"
     },
 
     "Somos":{
-        "Titulo": "QUIENES SOMOS",
+        "Titulo": "QUIÉNES SOMOS",
         "en": "En",
-        "descripcion1": "nos dedicamos a preservar y promover el arte ancestral del teñido y tejido tradicional. Fundado con la misión de mantener vivas las técnicas textiles que han sido transmitidas de generación en generación, nuestro centro es un espacio donde la historia, la cultura y la sostenibilidad se encuentran.",
+        "descripcion1": "nos apasiona compartir la riqueza de nuestra cultura andina, ofreciendo una variedad de experiencias que van desde el arte textil hasta la gastronomía ancestral. Somos un espacio donde las tradiciones se mantienen vivas, ofreciendo una ventana abierta al mundo de nuestras costumbres, historia y biodiversidad.",
         "nuestro_equipo": "Nuestro equipo",
-        "descripcion2": "de artesanos y colaboradores está comprometido con la creación de productos de alta calidad, utilizando lana de alpaca y procesos respetuosos con el medio ambiente. Nos enorgullece contribuir al desarrollo de nuestra comunidad, ofreciendo empleo, formación y una experiencia cultural única para nuestros visitantes.",
-        "descripcion3": "no solo encontrarás prendas artesanales excepcionales, sino también la oportunidad de sumergirte en la rica tradición cultural de nuestra región, a través de talleres, degustaciones y un entorno de hospedaje que refleja la autenticidad de nuestras raíces."
+        "descripcion2": "está conformado por artesanos, cocineras y guías locales que comparten un profundo amor por su tierra y su gente. Juntos, te ofreceremos experiencias auténticas que te conectarán con el alma de los Andes.",
+        "descripcion3": "no solo encontrarás productos artesanales, sino también la oportunidad de ser parte de nuestra cultura a través de talleres, caminatas y rituales que te dejarán recuerdos para toda la vida."
     },
 
     "Ofrecemos":{
@@ -31,32 +33,22 @@
         "Taller_textil": "TALLER TEXTIL",
         "tex_descripcion": "Sumérgete en la tradición artesanal aprendiendo sobre el proceso de teñido y tejido natural de las prendas típicas de la zona. Descubre cómo se obtienen los vibrantes colores utilizando plantas naturales y conoce cada paso para crear las hermosas telas que caracterizan a nuestra cultura.",
         "Taller_cocina": "TALLER DE COCINA",
-        "coci_descripcion": "Sumérgete en una experiencia culinaria única y descubre los secretos de la auténtica cocina cusqueña. En nuestro taller de cocina, aprenderás a preparar platos tradicionales utilizando ingredientes frescos y locales, guiado por expertos en gastronomía andina. Desde la preparación de la emblemática 'Pachamanca' hasta el delicioso 'Cuy al horno', disfrutarás de una experiencia práctica, llena de sabor y cultura. Ideal para amantes de la comida y viajeros curiosos que deseen llevarse un pedacito del Perú en su paladar y en su corazón.",
-        "llama_descripcion1": "Sumergete en una experiencia única y auténtica para los amantes de la naturaleza y los animales. Acompañado por nuestras amables llamas, podrás explorar senderos escénicos mientras disfrutas de la tranquilidad de la montaña. Las alpacas, conocidas por su temperamento calmado y amigable, no solo te harán compañía, sino que también llevarán tu equipo, permitiéndote disfrutar del paisaje sin preocupaciones.",
-        "llama_descripcion2": "Ideal para familias, aventureros o aquellos que buscan una conexión especial con la naturaleza. ¡Únete a nosotros y vive una aventura inolvidable en la compañía de nuestras encantadoras llamas!",
-        "Hospedaje": "HOSPEDAJE",
-        "hosp_descripcion": "Relájate en nuestro acogedor hospedaje en Chinchero. Ofrecemos habitaciones cómodas para que puedas descansar después de un día de actividades. Incluye desayuno y Wi-Fi gratis, ideal para quienes deseen conectarse mientras disfrutan de su estadía.",
+        "coci_descripcion": "Siente el calor de la cocina cusqueña mientras aprendes a preparar platos tradicionales como la pachamanca, yuyu jaucha, watia y mas. Un taller lleno de sabor y tradición, donde conocerás los secretos mejor guardados de la gastronomía andina.",
+        "llama_descripcion1": "Déjate llevar por el paso tranquilo de nuestras llamas mientras recorres paisajes de ensueño, rodeado de la majestuosidad de los Andes. Una experiencia de paz y conexión con la naturaleza.",
+        "llama_descripcion2": "Aventura perfecta para quienes buscan escapar del ruido y reconectar con la naturaleza en su estado más puro. ¡Vive el Ande con nosotros y las llamas como tus guías!",
         "Pago": "RUSH DE LOS ANDES",
-        "pago_descripcion": "Sumérgete en este viaje cultural que te llevará a conocer de cerca las tradiciones vivas de la región, desde el ceremonial pago a la Tierra hasta las festividades locales que celebran la cosecha. Participa en rituales ancestrales, aprende sobre las prácticas agrícolas tradicionales y únete a vibrantes bailes que han sido parte de la cultura andina durante siglos. Ideal para quienes buscan una conexión profunda con las raíces culturales y el espíritu de la montaña. Vive una jornada inolvidable explorando y celebrando la rica herencia de los Andes."
+        "pago_descripcion": "Vive la magia de un ritual ancestral de agradecimiento a la Pachamama. Participa en una ceremonia donde la naturaleza, la tierra y el cielo se unen para brindarte una experiencia espiritual única en el corazón de los Andes."
     },
 
-    "Donde_estamos" :"¿DÓNDE ENCONTRARNOS?",
+    "Infografia":{
+        "descripcion-transquilado":"Primero lo que hacemos es transquilar a la oveja",
+        "descripcion-lavado":"Luego lavamos la lana con agua y jabón",
+        "descripcion-ervido": "Hacemos ervir en una olla con agua un planta del color que usaremos",
+        "descripcion-hilado": "hilamos la lana de la oveja con una pushca",
+        "descripcion-teñido": "Metemos la lana a la olla y dejamos que hirva un tiempo junto a la yerba que se puso",
+        "descripcion-final": "Finalemente obtener un color hermoso"
+    },
 
-    "reserva": {
-        "titulo":"Realiza tu reserva",
-        "nombre": "Nombres",
-        "apellido": "Apellidos",
-        "cod_pais": "Codigo de pais",
-        "numero": "Número de celular",
-        "num_pasajero": "Número de pasajeros",
-        "fecha": "Fecha de reserva",
-        "Hora":"Hora de reserva estimada",
-        "servicios":"¿Qué servicios se le ofrece?",
-
-        "obligatorio": "es obligatorio",
-        "seleccione": "Seleccione una obcion",
-
-        "Realiza_reserva":"Realiza tu reserva"
-    }
+    "Donde_estamos" :"¿DÓNDE ENCONTRARNOS?"
 
 }

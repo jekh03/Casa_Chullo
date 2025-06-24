@@ -1,41 +1,38 @@
 <?php
-// Conectar a la base de datos
-$servername = "127.0.0.1";
-$username = "root";
-$password = "1234";
-$dbname = "clientes";
+// Configura tus credenciales de prueba
+$username = "74883555";
+$password = "testpassword_bnKXI3aXbmBGZmaVe2EbHBXxTOWtTT0ntaSZRsJ4LLMD9";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$url = "https://api.micuentaweb.pe/api-payment/V4/Charge/CreatePayment";
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+// Configura los datos de la orden
+$data = [
+    "amount" => 1000, // 1000 = 10.00 soles
+    "currency" => "PEN",
+    "orderId" => uniqid("order_"),
+    "customer" => [
+        "email" => "cliente@correo.com",
+    ],
+    "formAction" => "PAYMENT",
+];
+echo"data".$data["amount"];
 
-// Leer el cuerpo de la solicitud
-$data = json_decode(file_get_contents("php://input"), true);
+// Inicializa CURL
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json'
+]);
 
-$nombre = $data['nombre'];
-$apellido = $data['apellido'];
-$codigoPais = $data['codigoPais'];  // Corregir nombre de campo
-$celular = $data['celular'];
-$num_pasajeros = $data['num_pasajeros'];
-$fecha_reserva = $data['fecha_reserva'];
-$hora_reserva = $data['hora_reserva'];
-$servicio = json_encode($data['servicio']); // Convertir el array a JSON
+// Ejecuta la solicitud
+$response = curl_exec($ch);
+curl_close($ch);
 
-// Preparar la consulta
-$stmt = $conn->prepare("INSERT INTO reserva_clientes (nombre, apellido, codPais, celular, num_pasajeros, fecha_reserva, hora_reserva, servicio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssissss", $nombre, $apellido, $codigoPais, $celular, $num_pasajeros, $fecha_reserva, $hora_reserva, $servicio);
-
-// Ejecutar la consulta
-if ($stmt->execute()) {
-    echo "Nuevo registro creado con éxito";
-} else {
-    echo "Error: " . $stmt->error;
-}
-
-// Cerrar la conexión
-$stmt->close();
-$conn->close();
+// Retorna respuesta al frontend
+header('Content-Type: application/json');
+echo $response;
 ?>
-
